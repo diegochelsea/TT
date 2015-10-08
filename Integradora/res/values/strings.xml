@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Integradora</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="datos_personales">Datos Personales</string>
+    <string name="nombre">Nombre</string>
+    <string name="appP">Apellido Paterno</string>
+    <string name="appM">Apellido Materno</string>
+    <string name="fNac">Fecha de Nacimiento</string>
+    <string name="email">Correo Electrónico</string>
+    <string name="sexo">Sexo</string>
+    <string name="mujer">Mujer</string>
+    <string name="hombre">Hombre</string>
+    <string name="datos_usuario">Datos de Usuario</string>
+    <string name="rol">Rol</string>
+
+    <string-array name="opciones">
+        <item>Administrador</item>
+        <item>Consultor</item>
+        <item>Cliente</item>
+    </string-array>
+
+    <string name="nombre_usuario">Nombre de Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="direccion">Dirección</string>
+    <string name="telefono">Teléfono</string>
+    <string name="ext_num">Numero Exterior</string>
+    <string name="int_num">Numero Interior</string>
+    <string name="colonia">Colonia</string>
+    <string name="municipio">Municipio</string>
+    <string name="estado">Estado</string>
+    <string name="pais">País</string>
+    <string name="codigo_postal">Código Postal</string>
+    <string name="btnGuardar_p">Guardar</string>
+    <string name="btnCancelar_p">Cancelar</string>
+    <string name="btnGuardar_u">Guardar</string>
+    <string name="btnCancelar_u">Cancelar</string>
+    <string name="btnGuardar_d">Guardar</string>
+    <string name="btnCancelar_d">Cancelar</string>
+
+</resources>
