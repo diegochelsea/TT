@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/E:/LocalRepository/TT.git/TT.git/Integradora/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string-array name="opciones">
+        <item>Administrator</item>
+        <item>Consultant</item>
+        <item>Customer</item>
+    </string-array>
+    <!-- From: file:/E:/LocalRepository/TT.git/TT.git/Integradora/app/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <!-- From: file:/E:/LocalRepository/TT.git/TT.git/Integradora/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="action_settings">Settings</string>
+    <string name="appM">M. Last Name: </string>
+    <string name="appP">P. Last Name: </string>
+    <string name="app_name">Integradora</string>
+    <string name="btnCancelar">Cancel</string>
+    <string name="btnGuardar">Save</string>
+    <string name="codigo_postal">Postal code: </string>
+    <string name="colonia">Colony: </string>
+    <string name="datos_personales">Personal Data</string>
+    <string name="datos_usuario">User Data</string>
+    <string name="direccion">Address: </string>
+    <string name="email">Email: </string>
+    <string name="estado">State: </string>
+    <string name="ext_num">Ext. number:</string>
+    <string name="fNac">Birth Day: </string>
+    <string name="hello_world">Hello world!</string>
+    <string name="hombre">Man </string>
+    <string name="int_num">Int. number</string>
+    <string name="mujer">Woman </string>
+    <string name="municipio">Town: </string>
+    <string name="nombre">Name: </string>
+    <string name="nombre_usuario">User name: </string>
+    <string name="pais">Country: </string>
+    <string name="password">Password: </string>
+    <string name="rol">Role: </string>
+    <string name="sexo">Sex: </string>
+    <string name="telefono">Phone: </string>
+    <string name="title_activity_address">Address</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_personal">Personal</string>
+    <!-- From: file:/E:/LocalRepository/TT.git/TT.git/Integradora/app/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="AppBaseTheme" parent="android:Theme.Holo">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+</resources>
