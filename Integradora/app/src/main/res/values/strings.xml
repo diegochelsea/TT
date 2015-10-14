@@ -26,6 +26,7 @@
     <string name="password">Password: </string>
     <string name="direccion">Address: </string>
     <string name="telefono">Phone: </string>
+    <string name="description">Description: </string>
     <string name="ext_num">Ext. number:</string>
     <string name="int_num">Int. number</string>
     <string name="colonia">Colony: </string>
@@ -35,6 +36,9 @@
     <string name="codigo_postal">Postal code: </string>
     <string name="btnGuardar">Save</string>
     <string name="btnCancelar">Cancel</string>
+    <string name="btnSave">Save</string>
+    <string name="btnCancel">Cancel</string>
+    <string name="btnBack">Back</string>
     <string name="title_activity_personal">Personal</string>
     <string name="title_activity_address">Address</string>
     <string name="title_activity_login">Login</string>
