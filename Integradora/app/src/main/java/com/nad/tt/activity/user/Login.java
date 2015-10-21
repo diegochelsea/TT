@@ -1,4 +1,4 @@
-package com.nad.integradora;
+package com.nad.tt.activity.user;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -6,21 +6,23 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-public class Personal extends Activity {
+import com.nad.integradora.R;
+
+public class Login extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_personal);
+        setContentView(R.layout.layout_login);
         TextView textview = new TextView (this);
-        textview.setText("Personal tab");
+        textview.setText("Login tab");
         setContentView(textview);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_personal, menu);
+        getMenuInflater().inflate(R.menu.menu_login, menu);
         return true;
     }
 

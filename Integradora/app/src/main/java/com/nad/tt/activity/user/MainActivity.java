@@ -1,4 +1,4 @@
-package com.nad.integradora;
+package com.nad.tt.activity.user;
 
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.widget.TabHost;
 import android.widget.Toast;
+
+import com.nad.integradora.R;
 
 public class MainActivity extends Activity implements TabHost.OnTabChangeListener{
 

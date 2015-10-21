@@ -18,7 +18,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name="com.nad.tt.activity.user.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,15 +27,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Personal"
+            android:name="com.nad.tt.activity.user.Personal"
             android:label="@string/title_activity_personal" >
         </activity>
         <activity
-            android:name=".Address"
+            android:name="com.nad.tt.activity.user.Address"
             android:label="@string/title_activity_address" >
         </activity>
         <activity
-            android:name=".Login"
+            android:name="com.nad.tt.activity.user.Login"
             android:label="@string/title_activity_login" >
         </activity>
     </application>

@@ -1,10 +1,12 @@
-package com.nad.integradora;
+package com.nad.tt.activity.user;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+
+import com.nad.integradora.R;
 
 public class Address extends Activity {
 
