@@ -21,14 +21,18 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a002c;
+        public static final int action_settings=0x7f0a0031;
+        public static final int btnBackS=0x7f0a0030;
+        public static final int btnCancelS=0x7f0a002f;
         public static final int btnCancelarUsr=0x7f0a0028;
         public static final int btnGuardarUsr=0x7f0a0027;
+        public static final int btnSaveS=0x7f0a002e;
         public static final int dtpfNac=0x7f0a0007;
         public static final int lblAppM=0x7f0a0005;
         public static final int lblAppP=0x7f0a0003;
         public static final int lblCP=0x7f0a001e;
         public static final int lblColonia=0x7f0a0016;
+        public static final int lblDescription=0x7f0a002c;
         public static final int lblDireccion1=0x7f0a0010;
         public static final int lblEmail=0x7f0a0009;
         public static final int lblEstado=0x7f0a001a;
@@ -55,6 +59,7 @@ public final class R {
         public static final int txtAppP=0x7f0a0004;
         public static final int txtCP=0x7f0a001f;
         public static final int txtColonia=0x7f0a0017;
+        public static final int txtDescription=0x7f0a002d;
         public static final int txtDireccion=0x7f0a0011;
         public static final int txtEmail=0x7f0a000a;
         public static final int txtEstado=0x7f0a001b;
@@ -72,6 +77,7 @@ public final class R {
         public static final int layout_address=0x7f040001;
         public static final int layout_login=0x7f040002;
         public static final int layout_personal=0x7f040003;
+        public static final int layout_status=0x7f040004;
     }
     public static final class menu {
         public static final int main=0x7f090000;
@@ -87,32 +93,36 @@ public final class R {
         public static final int appM=0x7f080001;
         public static final int appP=0x7f080002;
         public static final int app_name=0x7f080003;
-        public static final int btnCancelar=0x7f080004;
-        public static final int btnGuardar=0x7f080005;
-        public static final int codigo_postal=0x7f080006;
-        public static final int colonia=0x7f080007;
-        public static final int datos_personales=0x7f080008;
-        public static final int datos_usuario=0x7f080009;
-        public static final int direccion=0x7f08000a;
-        public static final int email=0x7f08000b;
-        public static final int estado=0x7f08000c;
-        public static final int ext_num=0x7f08000d;
-        public static final int fNac=0x7f08000e;
-        public static final int hello_world=0x7f08000f;
-        public static final int hombre=0x7f080010;
-        public static final int int_num=0x7f080011;
-        public static final int mujer=0x7f080012;
-        public static final int municipio=0x7f080013;
-        public static final int nombre=0x7f080014;
-        public static final int nombre_usuario=0x7f080015;
-        public static final int pais=0x7f080016;
-        public static final int password=0x7f080017;
-        public static final int rol=0x7f080018;
-        public static final int sexo=0x7f080019;
-        public static final int telefono=0x7f08001a;
-        public static final int title_activity_address=0x7f08001b;
-        public static final int title_activity_login=0x7f08001c;
-        public static final int title_activity_personal=0x7f08001d;
+        public static final int btnBack=0x7f080004;
+        public static final int btnCancel=0x7f080005;
+        public static final int btnCancelar=0x7f080006;
+        public static final int btnGuardar=0x7f080007;
+        public static final int btnSave=0x7f080008;
+        public static final int codigo_postal=0x7f080009;
+        public static final int colonia=0x7f08000a;
+        public static final int datos_personales=0x7f08000b;
+        public static final int datos_usuario=0x7f08000c;
+        public static final int description=0x7f08000d;
+        public static final int direccion=0x7f08000e;
+        public static final int email=0x7f08000f;
+        public static final int estado=0x7f080010;
+        public static final int ext_num=0x7f080011;
+        public static final int fNac=0x7f080012;
+        public static final int hello_world=0x7f080013;
+        public static final int hombre=0x7f080014;
+        public static final int int_num=0x7f080015;
+        public static final int mujer=0x7f080016;
+        public static final int municipio=0x7f080017;
+        public static final int nombre=0x7f080018;
+        public static final int nombre_usuario=0x7f080019;
+        public static final int pais=0x7f08001a;
+        public static final int password=0x7f08001b;
+        public static final int rol=0x7f08001c;
+        public static final int sexo=0x7f08001d;
+        public static final int telefono=0x7f08001e;
+        public static final int title_activity_address=0x7f08001f;
+        public static final int title_activity_login=0x7f080020;
+        public static final int title_activity_personal=0x7f080021;
     }
     public static final class style {
         /**  API 11 theme customizations can go here. 

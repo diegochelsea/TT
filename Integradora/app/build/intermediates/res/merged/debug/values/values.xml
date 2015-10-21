@@ -17,12 +17,16 @@
     <string name="appM">M. Last Name: </string>
     <string name="appP">P. Last Name: </string>
     <string name="app_name">Integradora</string>
+    <string name="btnBack">Back</string>
+    <string name="btnCancel">Cancel</string>
     <string name="btnCancelar">Cancel</string>
     <string name="btnGuardar">Save</string>
+    <string name="btnSave">Save</string>
     <string name="codigo_postal">Postal code: </string>
     <string name="colonia">Colony: </string>
     <string name="datos_personales">Personal Data</string>
     <string name="datos_usuario">User Data</string>
+    <string name="description">Description: </string>
     <string name="direccion">Address: </string>
     <string name="email">Email: </string>
     <string name="estado">State: </string>
