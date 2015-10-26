@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">"TrackAndTrace "</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_munu_catalog_status">Catalog Status</string>
+    <string name="title_activity_status">Catalog Status</string>
+</resources>

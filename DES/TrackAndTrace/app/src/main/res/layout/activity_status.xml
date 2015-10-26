@@ -1,0 +1,36 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/linear_layout_content_vertical"
+    tools:context="com.nad.tt.activity.status.StatusActivity">
+
+    <EditText
+        android:id="@+id/txtDesc"
+        style="@style/lblHintRequired"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/description"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/lblErrorDesc"
+        style="@style/lblError"/>
+
+    <LinearLayout style="@style/linear_layout_center_horizontal">
+
+        <Button
+            android:id="@+id/btnStatusSave"
+            style="@style/btnsStatus"
+            android:onClick=""
+            android:text="@string/status_btn_save" />
+
+        <Button
+            android:id="@+id/btnStatusCancel"
+            style="@style/btnsStatus"
+            android:text="@string/status_btn_cancel" />
+
+        <Button
+            android:id="@+id/btnStatusBack"
+            style="@style/btnsStatus"
+            android:text="@string/status_btn_back" />
+    </LinearLayout>
+</LinearLayout>

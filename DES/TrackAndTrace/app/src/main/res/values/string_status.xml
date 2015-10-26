@@ -1,0 +1,7 @@
+<resources>
+    <string name="description">* Description</string>
+    <string name="status_btn_save">Save</string>
+    <string name="status_btn_cancel">Cancel</string>
+    <string name="status_btn_back">Back</string>
+    <string name="status_lbl_asterisk">*</string>
+</resources>
