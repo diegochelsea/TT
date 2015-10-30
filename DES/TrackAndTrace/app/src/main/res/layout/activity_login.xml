@@ -5,9 +5,12 @@
     android:background="@mipmap/tt_fondo"
     tools:context="">
 
-
+    <LinearLayout style="@style/linear_layout_center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="250sp">
+    </LinearLayout>
     <EditText
-        android:id="@+id/txtName"
+        android:id="@+id/txt_user"
         style="@style/lblHintRequired"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,18 +18,30 @@
         android:inputType="text" />
 
     <TextView
-        android:id="@+id/lblErrorNeimUser"
+        android:id="@+id/lblErrorEmail"
         style="@style/lblError"/>
+
     <EditText
-        android:id="@+id/txtLastName"
+        android:id="@+id/txt_password"
         style="@style/lblHintRequired"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"
-        android:inputType="text" />
+        android:inputType="textPassword"
+        />
 
     <TextView
-        android:id="@+id/lblErrorEmail"
+        android:id="@+id/lblErroPassword"
         style="@style/lblError"/>
 
+
+    <LinearLayout style="@style/linear_layout_center_horizontal"
+        android:gravity="right">
+
+        <Button
+            android:id="@+id/btnUserSave"
+            style="@style/btnsStatus"
+            android:onClick=""
+            android:text="@string/status_btn_save" />
+    </LinearLayout>
 </LinearLayout>
