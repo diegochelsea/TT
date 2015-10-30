@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/linear_layout_content_vertical"
+    tools:context="com.nad.tt.activity.user.UserActivity"
+    >
+
+    <EditText
+        android:id="@+id/txtName"
+        style="@style/lblHintRequired"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/lbl_name_user"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/lblErrorNeimUser"
+        style="@style/lblError"/>
+
+    <EditText
+        android:id="@+id/txtLastName"
+        style="@style/lblHintRequired"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/lbl_last_name_user"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/lblErrorLastName"
+        style="@style/lblError"/>
+
+    <EditText
+        android:id="@+id/txtEmail"
+        style="@style/lblHintRequired"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="email@lcamx.com"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/lblErrorEmail"
+        style="@style/lblError"/>
+
+    <EditText
+        android:id="@+id/txtPass"
+        style="@style/lblHintRequired"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/lbl_pass"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/lblErrorPass"
+        style="@style/lblError"/>
+
+    <LinearLayout style="@style/linear_layout_center_horizontal">
+        <Button
+            android:id="@+id/btnUserSave"
+            style="@style/btnsStatus"
+            android:onClick=""
+            android:text="@string/status_btn_save" />
+
+        <Button
+            android:id="@+id/btnUserCancel"
+            style="@style/btnsStatus"
+            android:text="@string/status_btn_cancel" />
+
+        <Button
+            android:id="@+id/btnUserBack"
+            style="@style/btnsStatus"
+            android:text="@string/status_btn_back" />
+    </LinearLayout>
+
+
+
+</LinearLayout>

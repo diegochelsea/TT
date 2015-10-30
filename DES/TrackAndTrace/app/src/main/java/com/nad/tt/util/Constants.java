@@ -18,6 +18,11 @@ public final class Constants {
     // Constants to save regexp
     public static final String REGEXP_STATUS_DESC  = "^[A-ZÑ]{1}[a-zÑáéíóú]{1,15}$";
 
+    public static final String REGEXP_NAME_USER  = "^[A-ZÑ]{1}[a-zÑáéíóú]{1,15}$";
+    public static final String REGEXP_LAST_NAME_USER  = "^[A-ZÑ]{1}[a-zÑáéíóú]{1,15}$";
+    public static final String REGEXP_EMAIL = "^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,3})$";
+    public static final String REGEXP_PASS = "^(?=^.{8,}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$";
+
     // Constants to save strings logs
     public static final String LOG_NAD  = "LOG-NAD";
 
