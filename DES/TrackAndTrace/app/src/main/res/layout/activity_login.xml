@@ -1,11 +1,32 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".LoginActivity">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/linear_layout_content_vertical"
+    android:background="@mipmap/tt_fondo"
+    tools:context="">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
-</RelativeLayout>
+    <EditText
+        android:id="@+id/txtName"
+        style="@style/lblHintRequired"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="E-Mail"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/lblErrorNeimUser"
+        style="@style/lblError"/>
+    <EditText
+        android:id="@+id/txtLastName"
+        style="@style/lblHintRequired"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/lblErrorEmail"
+        style="@style/lblError"/>
+
+</LinearLayout>

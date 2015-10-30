@@ -20,6 +20,12 @@
             android:name="com.nad.tt.activity.status.StatusActivity"
             android:label="@string/title_activity_status" >
         </activity>
+
+        <activity
+            android:name="com.nad.tt.activity.user.UserActivity"
+            android:label="@string/title_activity_user" >
+        </activity>
+
     </application>
 <!--<uses-permission android:name="android.permission.INTERNET"></uses-permission>-->
 </manifest>

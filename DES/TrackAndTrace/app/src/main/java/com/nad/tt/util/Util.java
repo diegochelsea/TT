@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.nad.tt.activity.login.R;
 import com.nad.tt.activity.status.StatusActivity;
+import com.nad.tt.activity.user.UserActivity;
 import com.nad.tt.comun.enumeration.ElementDTO;
 
 import java.util.HashMap;
@@ -54,6 +55,9 @@ public final class Util {
         switch (id) {
             case R.id.action_catalog_status:
                 Util.startActivityByClass(StatusActivity.class, activity);
+                return true;
+            case R.id.action_catalog_user:
+                Util.startActivityByClass(UserActivity.class, activity);
                 return true;
             default:
 //                Util.startActivityByClass();

@@ -4,6 +4,7 @@ package com.nad.tt.comun.dto;
  * Created by Diego on 23/10/2015.
  */
 public class UserDTO {
+
     private int idUser;
 
     private String name;

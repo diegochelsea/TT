@@ -1,7 +1,16 @@
 <resources>
-    <string name="app_name">"TrackAndTrace "</string>
+    <string name="app_name">TrackAndTrace</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_munu_catalog_status">Catalog Status</string>
     <string name="title_activity_status">Catalog Status</string>
+
+    <string name="lbl_name_user">Name User</string>
+    <string name="lbl_last_name_user">Last Name</string>
+    <string name="lbl_email">email@lcamx.com</string>
+    <string name="lbl_pass">*****</string>
+    <string name="action_munu_catalog_user">Catalog User</string>
+    <string name="title_activity_user">Catalog User</string>
+
+
 </resources>

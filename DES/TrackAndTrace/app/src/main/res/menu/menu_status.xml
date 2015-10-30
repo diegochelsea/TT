@@ -3,4 +3,6 @@
     tools:context="com.nad.tt.activity.status.StatusActivity">
     <item android:id="@+id/action_catalog_status" android:title="@string/action_munu_catalog_status"
         android:orderInCategory="100" android:showAsAction="never" />
+    <item android:id="@+id/action_catalog_user" android:title="@string/action_munu_catalog_user"
+        android:orderInCategory="100" android:showAsAction="never" />
 </menu>

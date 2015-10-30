@@ -1,5 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" tools:context=".LoginActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.nad.tt.activity.status.UserActivity">
     <item android:id="@+id/action_catalog_status" android:title="@string/action_munu_catalog_status"
         android:orderInCategory="100" android:showAsAction="never" />
     <item android:id="@+id/action_catalog_user" android:title="@string/action_munu_catalog_user"
