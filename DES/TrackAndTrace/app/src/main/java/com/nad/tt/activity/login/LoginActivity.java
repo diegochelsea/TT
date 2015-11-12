@@ -31,8 +31,8 @@ public class LoginActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_login, menu);
-        return true;
+//        getMenuInflater().inflate(R.menu.menu_login, menu);
+        return false;
     }
 
     @Override
@@ -42,8 +42,8 @@ public class LoginActivity extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        // Call show menu from java class util
-        return Util.showMenu(id, this);
+        // Don't to do to call show menu.
+        return false;
     }
 
     public void init(){
@@ -81,5 +81,9 @@ public class LoginActivity extends Activity {
             }
         };
         return textWatcher;
+    }
+
+    public void actionLogin(View view){
+        Util.startActivityByClass(StartActivity.class, this);
     }
 }

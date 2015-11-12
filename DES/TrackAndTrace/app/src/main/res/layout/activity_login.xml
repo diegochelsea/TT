@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/linear_layout_content_vertical"
     android:background="@mipmap/tt_fondo"
-    tools:context="">
+    tools:context="com.nad.tt.activity.user.LoginActivity">
 
     <LinearLayout style="@style/linear_layout_center_horizontal"
         android:layout_width="wrap_content"
@@ -41,7 +41,7 @@
         <Button
             android:id="@+id/btnUserSave"
             style="@style/btnsStatus"
-            android:onClick=""
+            android:onClick="actionLogin"
             android:text="@string/status_btn_save" />
     </LinearLayout>
 </LinearLayout>

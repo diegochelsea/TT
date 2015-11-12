@@ -1,4 +1,4 @@
-package com.nad.tt.activity.status;
+package com.nad.tt.activity.folio;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -7,34 +7,45 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.nad.tt.activity.login.R;
-import com.nad.tt.comun.dto.UserDTO;
 import com.nad.tt.comun.enumeration.ElementDTO;
-import com.nad.tt.dao.user.UserDAO;
 import com.nad.tt.util.Constants;
 import com.nad.tt.util.Util;
 
-public class StatusActivity extends Activity {
-
-    private EditText txtDesc;
-    private TextView lblErrorDesc;
+public class FolioActivity extends Activity {
+    private EditText txtFolio;
+    private TextView lblErrorFolio;
+    private EditText txtOrigin;
+    private TextView lblErrorOrigin;
+    private EditText txtDestination;
+    private TextView lblErrorDestination;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_status);
+        setContentView(R.layout.activity_folio);
         init();
     }
 
     private void init() {
-        txtDesc = (EditText) findViewById(R.id.txtDesc);
-        lblErrorDesc = (TextView) findViewById(R.id.lblErrorDesc);
-        ElementDTO elementDesc = new ElementDTO(txtDesc, true, Constants.REGEXP_STATUS_DESC, "Descripcion", lblErrorDesc, Constants.ERROR_CODE_OK);
-        txtDesc.addTextChangedListener(watcher(elementDesc));
+        txtFolio = (EditText) findViewById(R.id.txtFolio);
+        txtDestination = (EditText) findViewById(R.id.txtDestination);
+        txtOrigin = (EditText) findViewById(R.id.txtOrigin);
+        lblErrorFolio = (TextView) findViewById(R.id.lblErrorFolio);
+        lblErrorOrigin = (TextView) findViewById(R.id.lblErrorOrigin);
+        lblErrorDestination = (TextView) findViewById(R.id.lblErrorDestination);
+
+        ElementDTO elementFolio = new ElementDTO(txtFolio, true, Constants.REGEXP_FOLIO_FOLIO, "Folio", lblErrorFolio, Constants.ERROR_CODE_OK);
+        txtFolio.addTextChangedListener(watcher(elementFolio));
+
+        ElementDTO elementOrigin = new ElementDTO(txtOrigin, true, Constants.REGEXP_STATUS_DESC, "Origin", lblErrorOrigin, Constants.ERROR_CODE_OK);
+        txtOrigin.addTextChangedListener(watcher(elementOrigin));
+
+        ElementDTO elementDestination = new ElementDTO(txtDestination, true, Constants.REGEXP_STATUS_DESC, "Destination", lblErrorDestination, Constants.ERROR_CODE_OK);
+        txtDestination.addTextChangedListener(watcher(elementDestination));
         Log.d(Constants.LOG_NAD, "INIT");
     }
 
@@ -76,10 +87,5 @@ public class StatusActivity extends Activity {
         int id = item.getItemId();
 
         return Util.showMenu(id, this);
-    }
-
-    public void test(View view){
-        UserDAO user = new UserDAO();
-        user.getWS();
     }
 }

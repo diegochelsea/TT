@@ -2,15 +2,23 @@
     <string name="app_name">TrackAndTrace</string>
 
     <string name="hello_world">Hello world!</string>
-    <string name="action_munu_catalog_status">Catalog Status</string>
-    <string name="title_activity_status">Catalog Status</string>
+    <string name="action_menu_catalog_status">Status Catalog</string>
+    <string name="title_activity_status">Status Catalog</string>
 
     <string name="lbl_name_user">Name User</string>
     <string name="lbl_last_name_user">Last Name</string>
     <string name="lbl_email">email@lcamx.com</string>
     <string name="lbl_pass">*****</string>
-    <string name="action_munu_catalog_user">Catalog User</string>
-    <string name="title_activity_user">Catalog User</string>
+    <string name="action_menu_catalog_user">Users</string>
+    <string name="action_menu_catalog_folio">Folios</string>
+    <string name="action_menu_catalog_monitoring">Monitoring</string>
+    <string name="title_activity_user">Users</string>
+    <string name="title_activity_start">Start</string>
+    <string name="action_start">Start</string>
+    <string name="action_logOut">Log out</string>
+    <string name="title_activity_folio">Folios</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_monitoring">Monitoring</string>
 
 
 </resources>

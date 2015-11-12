@@ -8,7 +8,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.nad.tt.activity.folio.FolioActivity;
+import com.nad.tt.activity.login.LoginActivity;
 import com.nad.tt.activity.login.R;
+import com.nad.tt.activity.login.StartActivity;
+import com.nad.tt.activity.monitoring.MonitoringActivity;
 import com.nad.tt.activity.status.StatusActivity;
 import com.nad.tt.activity.user.UserActivity;
 import com.nad.tt.comun.enumeration.ElementDTO;
@@ -58,6 +62,18 @@ public final class Util {
                 return true;
             case R.id.action_catalog_user:
                 Util.startActivityByClass(UserActivity.class, activity);
+                return true;
+            case R.id.action_start:
+                Util.startActivityByClass(StartActivity.class, activity);
+                return true;
+            case R.id.action_log_out:
+                Util.startActivityByClass(LoginActivity.class, activity);
+                return true;
+            case R.id.action_catalog_folio:
+                Util.startActivityByClass(FolioActivity.class, activity);
+                return true;
+            case R.id.action_catalog_monitoring:
+                Util.startActivityByClass(MonitoringActivity.class, activity);
                 return true;
             default:
 //                Util.startActivityByClass();

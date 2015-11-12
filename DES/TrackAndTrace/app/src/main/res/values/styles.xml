@@ -2,7 +2,7 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="android:Theme.Holo">
-        <!-- Customize your theme here. -->
+        <item name="android:windowActionBarOverlay">true</item>
     </style>
 
 
@@ -40,4 +40,11 @@
 
     </style>
 
+    <style name="generalGreenBtn">
+        <item name="android:background">@android:color/holo_green_dark</item>
+        <item name="android:textColor">#CBEBC7</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_margin">3dp</item>
+    </style>
 </resources>

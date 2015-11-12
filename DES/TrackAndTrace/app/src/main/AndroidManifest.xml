@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nad.tt.activity.login" >
 
+    <!-- <uses-permission android:name="android.permission.INTERNET"></uses-permission> -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/tt_logo"
@@ -20,12 +21,26 @@
             android:name="com.nad.tt.activity.status.StatusActivity"
             android:label="@string/title_activity_status" >
         </activity>
-
         <activity
             android:name="com.nad.tt.activity.user.UserActivity"
             android:label="@string/title_activity_user" >
         </activity>
-
+        <activity
+            android:name=".StartActivity"
+            android:label="@string/title_activity_start" >
+        </activity>
+        <activity
+            android:name="com.nad.tt.com.nad.tt.activity.folio.FolioActivity"
+            android:label="@string/title_activity_folio" >
+        </activity>
+        <activity
+            android:name="com.nad.tt.activity.folio.FolioActivity"
+            android:label="@string/title_activity_folio" >
+        </activity>
+        <activity
+            android:name="com.nad.tt.activity.monitoring.MonitoringActivity"
+            android:label="@string/title_activity_monitoring" >
+        </activity>
     </application>
-<!--<uses-permission android:name="android.permission.INTERNET"></uses-permission>-->
+
 </manifest>

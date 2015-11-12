@@ -1,0 +1,56 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/linear_layout_content_vertical"
+    tools:context="com.nad.tt.com.nad.tt.activity.folio.FolioActivity">
+
+    <EditText
+        android:id="@+id/txtFolio"
+        style="@style/lblHintRequired"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/folio"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/lblErrorFolio"
+        style="@style/lblError"/>
+
+    <EditText
+        android:id="@+id/txtOrigin"
+        style="@style/lblHintRequired"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/origin"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/lblErrorOrigin"
+        style="@style/lblError"/>
+
+    <EditText
+        android:id="@+id/txtDestination"
+        style="@style/lblHintRequired"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/destination"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/lblErrorDestination"
+        style="@style/lblError"/>
+
+    <LinearLayout style="@style/linear_layout_center_horizontal">
+
+        <Button
+            android:id="@+id/btnFolioSave"
+            style="@style/generalGreenBtn"
+            android:onClick=""
+            android:text="@string/folio_btn_save" />
+
+        <Button
+            android:id="@+id/btnFolioCancel"
+            style="@style/generalGreenBtn"
+            android:text="@string/folio_btn_cancel" />
+    </LinearLayout>
+
+</LinearLayout>

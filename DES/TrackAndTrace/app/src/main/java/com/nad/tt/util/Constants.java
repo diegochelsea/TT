@@ -17,6 +17,7 @@ public final class Constants {
 
     // Constants to save regexp
     public static final String REGEXP_STATUS_DESC  = "^[A-ZÑ]{1}[a-zÑáéíóú]{1,15}$";
+    public static final String REGEXP_FOLIO_FOLIO  = "^[0-9]{2,6}$";
 
     public static final String REGEXP_NAME_USER  = "^[A-ZÑ]{1}[a-zÑáéíóú]{1,15}$";
     public static final String REGEXP_LAST_NAME_USER  = "^[A-ZÑ]{1}[a-zÑáéíóú]{1,15}$";
