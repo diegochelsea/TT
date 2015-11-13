@@ -42,6 +42,6 @@
             android:id="@+id/btnUserSave"
             style="@style/btnsStatus"
             android:onClick=""
-            android:text="@string/status_btn_save" />
+            android:text="@string/title_activity_login" />
     </LinearLayout>
 </LinearLayout>

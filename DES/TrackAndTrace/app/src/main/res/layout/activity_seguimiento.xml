@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/linear_layout_content_vertical"
+    tools:context="com.nad.tt.activity.status.SeguimientoActivity">
+
+    <EditText
+        android:id="@+id/txtFolio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/txtFolioSeguimiento"
+        android:inputType="text" />
+
+    <TableRow
+        android:id="@+id/tbl1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        >
+            <TextView
+                android:id="@+id/lbl_source"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_source"
+            />
+
+            <TextView
+            android:id="@+id/lbl_receiver"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_receiver"
+            />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tbl2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+        <EditText
+            android:id="@+id/txt_source"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/txt_source_hint"
+            android:inputType="text" />
+        <EditText
+            android:id="@+id/txt_receiver"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/txt_receiver_hint"
+            android:inputType="text" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tbl3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        >
+        <TextView
+            android:id="@+id/lbl_pickup"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_pickup"
+            />
+        <TextView
+            android:id="@+id/lbl_checkin"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_checkin"
+            />
+        <TextView
+            android:id="@+id/lbl_onfly"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_onfly"
+            />
+        <TextView
+            android:id="@+id/lbl_customclearance"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_customclearance"
+            />
+        <TextView
+            android:id="@+id/lbl_delivered"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_delivered"
+            />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tbl4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        >
+        <Button
+            style="@style/btnsStatus"
+            android:onClick=""
+            android:text="" />
+        <Button
+            style="@style/btnsStatus"
+            android:onClick=""
+            android:text="" />
+        <Button
+            style="@style/btnsStatus"
+            android:onClick=""
+            android:text="" />
+        <Button
+            style="@style/btnsStatus"
+            android:onClick=""
+            android:text="" />
+        <Button
+            style="@style/btnsStatus"
+            android:onClick=""
+            android:text="" />
+    </TableRow>
+
+
+</LinearLayout>
