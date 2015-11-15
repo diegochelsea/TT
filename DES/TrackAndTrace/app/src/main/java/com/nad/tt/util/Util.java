@@ -75,7 +75,8 @@ public final class Util {
         return editText.getText().toString();
     }
 
-    public static void isValidComponent(ElementDTO elementDTO) {
+    public static boolean isValidComponent(ElementDTO elementDTO) {
+        boolean result =  true;
         Log.d(Constants.LOG_NAD, "isValidComponent");
         Log.d(Constants.LOG_NAD, "Values: " + elementDTO.isRequired() + ", "
                 + elementDTO.getLblNameElement() + ", " + elementDTO.getRegexp() + ", "
@@ -86,14 +87,17 @@ public final class Util {
                 Log.d(Constants.LOG_NAD, "2");
                 elementDTO.getTxtMsgError().setText(getMsgRequiredError(elementDTO.getLblNameElement()));
                 elementDTO.getTxtMsgError().setVisibility(View.VISIBLE);
+                result = false;
             } else {
                 Log.d(Constants.LOG_NAD, "3");
                 if (!isValidRegexp(getString(elementDTO.getEditText()), elementDTO.getRegexp())) {
                     Log.d(Constants.LOG_NAD, "4");
                     elementDTO.getTxtMsgError().setText(getMsgInvalidError(elementDTO.getLblNameElement()));
                     elementDTO.getTxtMsgError().setVisibility(View.VISIBLE);
+                    result = false;
                 } else {
                     resetLblError(elementDTO.getTxtMsgError());
+
                 }
             }
         } else {
@@ -102,8 +106,10 @@ public final class Util {
                 Log.d(Constants.LOG_NAD, "6");
                 elementDTO.getTxtMsgError().setText(getMsgInvalidError(elementDTO.getLblNameElement()));
                 elementDTO.getTxtMsgError().setVisibility(View.VISIBLE);
+                result = false;
             }
         }
+        return  result;
     }
 
     private static String getMsgRequiredError(String value) {

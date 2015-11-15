@@ -21,17 +21,18 @@
         <Button
             android:id="@+id/btnStatusSave"
             style="@style/btnsStatus"
-            android:onClick=""
+            android:onClick="saveStatus"
             android:text="@string/status_btn_save" />
 
         <Button
-            android:id="@+id/btnStatusCancel"
+            android:id="@+id/btnStatusSearch"
             style="@style/btnsStatus"
-            android:text="@string/status_btn_cancel" />
+            android:text="@string/status_btn_search" />
 
         <Button
-            android:id="@+id/btnStatusBack"
+            android:id="@+id/btnStatusDelete"
             style="@style/btnsStatus"
-            android:text="@string/status_btn_back" />
+            android:text="@string/status_btn_delete" />
+
     </LinearLayout>
 </LinearLayout>

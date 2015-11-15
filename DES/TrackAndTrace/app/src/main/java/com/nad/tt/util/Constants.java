@@ -38,4 +38,18 @@ public final class Constants {
     public static final String NAME_SAPACE = "http://impl.dao.user.tt.nad.com/";
     public static final String SOAP_ACTION_PREFIX = "/";
     public static final String METHOD = "saveUser";
+
+    //Costants to set an action
+    public static final String INSERT = "logIn";
+    public static final int SOAP_OBJECT = 1;
+    public static final int SOAP_PRIMITIVE = 2;
+    public static final String STATUS = "Status ";
+    public static final String INSERTED = "inserted";
+    public static final String ERROR = "Error ocurred";
+
+    //Constant to set an accion2
+    public static final String USER_DTO = "userDTO";
+    public static final String STATUS_DTO = "statusDTO";
+    public static final String FOLIO_DTO = "folioDTO";
+    public static final String FOLLOWUP_DTO = "followupDTO";
 }
