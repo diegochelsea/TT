@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.nad.tt.activity.login" >
+    package="com.nad.tt.activity.login">
 
-    <!-- <uses-permission android:name="android.permission.INTERNET"></uses-permission> -->
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/tt_logo"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".LoginActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,28 +19,22 @@
         </activity>
         <activity
             android:name="com.nad.tt.activity.status.StatusActivity"
-            android:label="@string/title_activity_status" >
-        </activity>
+            android:label="@string/title_activity_status"></activity>
         <activity
             android:name="com.nad.tt.activity.user.UserActivity"
-            android:label="@string/title_activity_user" >
-        </activity>
+            android:label="@string/title_activity_user"></activity>
         <activity
             android:name=".StartActivity"
-            android:label="@string/title_activity_start" >
-        </activity>
+            android:label="@string/title_activity_start"></activity>
         <activity
             android:name="com.nad.tt.com.nad.tt.activity.folio.FolioActivity"
-            android:label="@string/title_activity_folio" >
-        </activity>
+            android:label="@string/title_activity_folio"></activity>
         <activity
             android:name="com.nad.tt.activity.folio.FolioActivity"
-            android:label="@string/title_activity_folio" >
-        </activity>
+            android:label="@string/title_activity_folio"></activity>
         <activity
             android:name="com.nad.tt.activity.monitoring.MonitoringActivity"
-            android:label="@string/title_activity_monitoring" >
-        </activity>
+            android:label="@string/title_activity_monitoring"></activity>
     </application>
 
 </manifest>

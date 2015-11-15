@@ -80,6 +80,5 @@ public class StatusActivity extends Activity {
 
     public void test(View view){
         UserDAO user = new UserDAO();
-        user.getWS();
     }
 }

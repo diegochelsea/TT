@@ -2,6 +2,7 @@ package com.nad.tt.activity.login;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -11,7 +12,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.nad.tt.comun.dto.UserDTO;
 import com.nad.tt.comun.enumeration.ElementDTO;
+import com.nad.tt.dao.user.UserDAO;
 import com.nad.tt.util.Constants;
 import com.nad.tt.util.Util;
 
@@ -21,12 +24,16 @@ public class LoginActivity extends Activity {
     private EditText txtPassword;
     private TextView lblErrorUser;
     private TextView lblErrorPassword;
-
+    private UserDAO userDAO;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         init();
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+        userDAO = new UserDAO();
+        userDAO.login();
     }
 
     @Override

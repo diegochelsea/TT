@@ -37,6 +37,6 @@ public final class Constants {
     // Costants to get connection to web service
     public static final String URL = "http://192.168.0.12:8484/WSTT/services/UserDAOImpl";
     public static final String NAME_SAPACE = "http://dto.comun.ws.tt.nad.com";
-    public static final String SOAP_ACTION = "http://dto.comun.ws.tt.nad.com/logIn";
-    public static final String METHOD = "logIn";
+    public static final String SOAP_ACTION = "http://dto.comun.ws.tt.nad.com/logInTest";
+    public static final String METHOD = "logInTest";
 }
