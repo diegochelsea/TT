@@ -16,6 +16,9 @@
     <string name="txtFolioSeguimiento">2000001</string>
     <string name="lbl_source">Source</string>
     <string name="lbl_receiver">Receiver</string>
+    <string name="lbl_source_set">este es un strin exagerado</string>
+    <string name="lbl_receiver_set">este es un strin exagerado</string>
+    <string name="lbl_to">--></string>
 
     <string name="txt_source_hint">México</string>
     <string name="txt_receiver_hint">USA</string>
@@ -23,7 +26,7 @@
     <string name="lbl_pickup">Pick UP</string>
     <string name="lbl_checkin">Checkin</string>
     <string name="lbl_onfly">On Fly</string>
-    <string name="lbl_customclearance">Custom Clearance</string>
+    <string name="lbl_customclearance">Custom C</string>
     <string name="lbl_delivered">Delivered</string>
 
 </resources>

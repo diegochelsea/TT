@@ -5,7 +5,6 @@
         <!-- Customize your theme here. -->
     </style>
 
-
     <style name="linear_layout_center_horizontal">
         <item name="android:gravity">center</item>
         <item name="android:orientation">horizontal</item>
@@ -23,39 +22,58 @@
         <item name="android:paddingTop">@dimen/activity_vertical_margin</item>
     </style>
 
+    <style name="linear_layout_follow_vertical">
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">120sp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingBottom">@dimen/activity_vertical_margin</item>
+        <item name="android:paddingLeft">@dimen/activity_horizontal_margin</item>
+        <item name="android:paddingRight">@dimen/activity_horizontal_margin</item>
+        <item name="android:paddingTop">@dimen/activity_vertical_margin</item>
+    </style>
+
+    <style name="linear_layout_follow_vertical_">
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingBottom">@dimen/activity_vertical_margin</item>
+        <item name="android:paddingLeft">10sp</item>
+        <item name="android:paddingRight">10sp</item>
+        <item name="android:paddingTop">@dimen/activity_vertical_margin</item>
+    </style>
+
+    <style name="linear_layout_follow_vertical_to">
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">50sp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingBottom">@dimen/activity_vertical_margin</item>
+        <item name="android:paddingLeft">@dimen/activity_horizontal_margin</item>
+        <item name="android:paddingRight">@dimen/activity_horizontal_margin</item>
+        <item name="android:paddingTop">@dimen/activity_vertical_margin</item>
+    </style>
+
+    <style name="linear_layout_status_horizontal">
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
     <style name="lblError">
         <item name="android:background">#40FF3333</item>
         <item name="android:textColor">#FFCCCC</item>
         <item name="android:padding">2dp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:visibility">gone</item>
-
     </style>
 
     <style name="lblHintRequired">
         <item name="android:textColorHint">#FFCCCC</item>
         <item name="android:textStyle">italic</item>
         <item name="android:padding">1dp</item>
-
-    </style>
-
-    <style name="btnActive">
-        <item name="android:background">#04D735</item>
-        <item name="android:textColor">#FFCCCC</item>
-        <item name="android:padding">2dp</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:visibility">gone</item>
-    </style>
-
-    <style name="btnUnactive">
-        <item name="android:background">#C91818</item>
-        <item name="android:textColor">#FFCCCC</item>
-        <item name="android:padding">2dp</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:visibility">gone</item>
     </style>
 
 </resources>

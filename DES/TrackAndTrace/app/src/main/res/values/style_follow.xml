@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="btnActive">
+        <item name="android:background">@android:color/holo_green_light</item>
+        <item name="android:textColor">#CBEBC7</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_margin">2dp</item>
+    </style>
+
+    <style name="btnUnactive">
+        <item name="android:background">@android:color/holo_red_dark</item>
+        <item name="android:textColor">#CBEBC7</item>
+        <item name="android:layout_height">33sp</item>
+        <item name="android:layout_width">33sp</item>
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:shape">oval</item>
+    </style>
+
+
+    <style name="btnActiveHide">
+        <item name="android:background">@android:color/holo_green_light</item>
+        <item name="android:textColor">#CBEBC7</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="btnUnactiveHide">
+        <item name="android:background">@android:color/holo_red_dark</item>
+        <item name="android:textColor">#CBEBC7</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:visibility">gone</item>
+    </style>
+</resources>
