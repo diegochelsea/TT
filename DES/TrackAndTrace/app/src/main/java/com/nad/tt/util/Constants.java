@@ -26,6 +26,10 @@ public final class Constants {
     // Constants to save strings logs
     public static final String LOG_NAD  = "LOG-NAD";
 
+    // Constants to folio
+    public static final String REGEXP_FOLIO = "^[0-9]{7}$";
+    public static final String REGEXP_ORIGIN = "^[A_Z]{1}[a-zÑáéíóú]{2,15}[A-Z]?[a-zÑáéíóú]?$";
+    public static final String REGEXP_DESTINATION = "^[A_Z]{1}[a-zÑáéíóú]{2,15}[A-Z]?[a-zÑáéíóú]?$";
 
     // Constants to error
     public static final String ERROR_CODE_INVALID_FORMAT  = "E001";
