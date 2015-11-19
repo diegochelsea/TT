@@ -17,6 +17,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name="com.nad.tt.activity.status.StatusActivity"
             android:label="@string/title_activity_status"></activity>
@@ -35,6 +36,22 @@
         <activity
             android:name="com.nad.tt.activity.monitoring.MonitoringActivity"
             android:label="@string/title_activity_monitoring"></activity>
+        </activity>
+
+        <activity
+            android:name="com.nad.tt.activity.folio.ActivitySetFolio"
+            android:label="@string/title_activity_user" >
+        </activity>
+
+        <activity
+            android:name="com.nad.tt.activity.folio.FolioActivity"
+            android:label="@string/title_activity_user" >
+        </activity>
+
+        <activity
+            android:name="com.nad.tt.activity.follow.FollowActivity"
+            android:label="@string/app_name" >
+        </activity>
     </application>
 
 </manifest>

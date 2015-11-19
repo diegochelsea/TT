@@ -27,6 +27,10 @@ public final class Constants {
     // Constants to save strings logs
     public static final String LOG_NAD  = "LOG-NAD";
 
+    // Constants to folio
+    public static final String REGEXP_FOLIO = "^[0-9]{7}$";
+    public static final String REGEXP_ORIGIN = "^[A_Z]{1}[a-zÑáéíóú]{2,15}[A-Z]?[a-zÑáéíóú]?$";
+    public static final String REGEXP_DESTINATION = "^[A_Z]{1}[a-zÑáéíóú]{2,15}[A-Z]?[a-zÑáéíóú]?$";
 
     // Constants to error
     public static final String ERROR_CODE_INVALID_FORMAT  = "E001";
@@ -39,4 +43,18 @@ public final class Constants {
     public static final String NAME_SAPACE = "http://dto.comun.ws.tt.nad.com";
     public static final String SOAP_ACTION = "http://dto.comun.ws.tt.nad.com/logInTest";
     public static final String METHOD = "logInTest";
+
+    //Costants to set an action
+    public static final String INSERT = "logIn";
+    public static final int SOAP_OBJECT = 1;
+    public static final int SOAP_PRIMITIVE = 2;
+    public static final String STATUS = "Status ";
+    public static final String INSERTED = "inserted";
+    public static final String ERROR = "Error ocurred";
+
+    //Constant to set an accion2
+    public static final String USER_DTO = "userDTO";
+    public static final String STATUS_DTO = "statusDTO";
+    public static final String FOLIO_DTO = "folioDTO";
+    public static final String FOLLOWUP_DTO = "followupDTO";
 }

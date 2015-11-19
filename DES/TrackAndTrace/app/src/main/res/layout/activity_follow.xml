@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/linear_layout_content_vertical"
+    tools:context="com.nad.tt.activity.follow.FollowActivity">
+
+    <LinearLayout style="@style/linear_layout_center_horizontal">
+        <TextView
+            android:id="@+id/lbl_folio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="@string/lbl_checkin"
+            />
+    </LinearLayout>
+
+    <LinearLayout style="@style/linear_layout_center_horizontal">
+        <LinearLayout style="@style/linear_layout_follow_vertical">
+            <TextView
+                android:id="@+id/lbl_sorce"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:text="@string/lbl_source"
+                />
+        </LinearLayout>
+        <LinearLayout style="@style/linear_layout_follow_vertical">
+            <TextView
+                android:id="@+id/lbl_receiver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:text="@string/lbl_receiver"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout style="@style/linear_layout_center_horizontal">
+        <LinearLayout style="@style/linear_layout_follow_vertical">
+            <TextView
+                android:id="@+id/lbl_sorce_set"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:text="@string/lbl_source_set"
+                />
+        </LinearLayout>
+
+        <LinearLayout style="@style/linear_layout_follow_vertical_to">
+            <TextView
+                android:id="@+id/lbl_sorce_set_"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:text="@string/lbl_to"
+                />
+        </LinearLayout>
+
+        <LinearLayout style="@style/linear_layout_follow_vertical">
+            <TextView
+                android:id="@+id/lbl_receiver_set"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:text="@string/lbl_receiver_set"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout style="@style/linear_layout_center_horizontal"
+                  android:paddingTop="50sp">
+        <LinearLayout style="@style/linear_layout_follow_vertical_">
+            <TextView
+                android:id="@+id/lbl_pickup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_pickup"
+                android:textSize="10sp"
+                />
+        </LinearLayout>
+
+        <LinearLayout style="@style/linear_layout_follow_vertical_">
+            <TextView
+                android:id="@+id/lbl_checkin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_checkin"
+                android:textSize="10sp"
+                />
+        </LinearLayout>
+        <LinearLayout style="@style/linear_layout_follow_vertical_">
+            <TextView
+                android:id="@+id/lbl_onfly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_onfly"
+                android:textSize="10sp"
+                />
+        </LinearLayout>
+        <LinearLayout style="@style/linear_layout_follow_vertical_">
+            <TextView
+                android:id="@+id/lbl_customclearance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_customclearance"
+                android:textSize="10sp"
+                />
+        </LinearLayout>
+        <LinearLayout style="@style/linear_layout_follow_vertical_">
+            <TextView
+                android:id="@+id/lbl_delivered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_delivered"
+                android:textSize="10sp"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout style="@style/linear_layout_center_horizontal">
+        <LinearLayout style="@style/linear_layout_follow_vertical_">
+            <Button
+                android:id="@+id/btn_pick_up"
+                style="@style/btnUnactive"
+                android:background="@drawable/buton_unactive"
+                android:onClick=""
+                android:text="" />
+        </LinearLayout>
+        <LinearLayout style="@style/linear_layout_follow_vertical_">
+            <Button
+                android:id="@+id/btn_checkin"
+                style="@style/btnUnactive"
+                android:background="@drawable/buton_unactive"
+                android:onClick=""
+                android:text="" />
+        </LinearLayout>
+        <LinearLayout style="@style/linear_layout_follow_vertical_">
+            <Button
+                android:id="@+id/btn_on_fly"
+                style="@style/btnUnactive"
+                android:background="@drawable/buton_unactive"
+                android:onClick=""
+                android:text="" />
+        </LinearLayout>
+        <LinearLayout style="@style/linear_layout_follow_vertical_">
+            <Button
+                android:id="@+id/btn_custom"
+                style="@style/btnUnactive"
+                android:background="@drawable/buton_unactive"
+                android:onClick=""
+                android:text="" />
+        </LinearLayout>
+        <LinearLayout style="@style/linear_layout_follow_vertical_">
+            <Button
+                android:id="@+id/btn_deliveres"
+                style="@style/btnUnactive"
+                android:background="@drawable/buton_unactive"
+                android:onClick=""
+                android:text="" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_hide_active"
+        style="@style/btnActiveHide"
+        android:background="@drawable/buton_activehide"
+        android:onClick=""
+        android:text="" />
+
+    <Button
+        android:id="@+id/btn_hide_unactive"
+        style="@style/btnUnactiveHide"
+        android:onClick=""
+        android:text="" />
+
+</LinearLayout>
