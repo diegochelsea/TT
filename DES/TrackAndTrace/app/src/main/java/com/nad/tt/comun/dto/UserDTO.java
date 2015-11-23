@@ -3,108 +3,144 @@ package com.nad.tt.comun.dto;
 /**
  * Created by Diego on 23/10/2015.
  */
+
 import com.nad.tt.util.DataType;
 import com.nad.tt.util.TTWSConstants;
 
+import org.ksoap2.serialization.KvmSerializable;
+import org.ksoap2.serialization.PropertyInfo;
+
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
 
 /**
  * Created by Diego on 23/10/2015.
  */
-public class UserDTO {
+public class UserDTO implements KvmSerializable {
 
-    private int idUser;
-    private String name = "";
-    private String lastName = "";
-    private String email = "";
-    private String password = "";
+    public String codError = "";
+    public String msgError = "";
+    public int idUser = 0;
+    public String name = "";
+    public String lastName = "";
+    public String email = "";
+    public String password = "";
+    public int rol = 0;
+    public String[] folios = null;
 
     public UserDTO() {
         // TODO Auto-generated constructor stub
     }
 
-    public UserDTO(int idUser, String name, String lastName, String email,
-                   String password) {
-        super();
-        this.idUser = idUser;
-        this.name = name;
-        this.lastName = lastName;
-        this.email = email;
-        this.password = password;
-    }
+    @Override
+    public Object getProperty(int i) {
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public int getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
-    }
-
-    public List<DataType> getColumns(boolean idRequired) {
-        List<DataType> dataTypes = new ArrayList<>();
-
-        if (idRequired) {
-            DataType typeId = new DataType(TTWSConstants.INTEGER, "idUser",
-                    String.valueOf(getIdUser()));
-            dataTypes.add(typeId);
+        switch (i) {
+            case 0:
+                return codError;
+            case 1:
+                return msgError;
+            case 2:
+                return idUser;
+            case 3:
+                return name;
+            case 4:
+                return lastName;
+            case 5:
+                return email;
+            case 6:
+                return password;
+            case 7:
+                return rol;
+            case 8:
+                return folios;
         }
-        DataType typeName = new DataType(TTWSConstants.STRING, "name",
-                getName());
-        DataType typeLastName = new DataType(TTWSConstants.STRING, "lastName",
-                getLastName());
-        DataType typeEmail = new DataType(TTWSConstants.INTEGER, "email",
-                getEmail());
-        DataType typePass = new DataType(TTWSConstants.INTEGER, "password",
-                getPassword());
-
-        dataTypes.add(typeName);
-        dataTypes.add(typeLastName);
-        dataTypes.add(typeEmail);
-        dataTypes.add(typePass);
-        return dataTypes;
+        return null;
     }
 
-    public DataType getWhereById() {
-        StringBuilder where = new StringBuilder(TTWSConstants.WHERE)
-                .append("idUser").append(TTWSConstants.EQUAL)
-                .append(TTWSConstants.ONE_WHITE_SPACE);
-        DataType idDataType = new DataType(TTWSConstants.INTEGER,
-                where.toString(), String.valueOf(getIdUser()));
-        return idDataType;
+    @Override
+    public int getPropertyCount() {
+        return 9;
     }
 
+    @Override
+    public void setProperty(int i, Object o) {
+        switch (i) {
+            case 0:
+                codError = o.toString();
+                break;
+            case 1:
+                msgError = o.toString();
+                break;
+            case 2:
+                idUser = Integer.valueOf(o.toString());
+                break;
+            case 3:
+                name = o.toString();
+                break;
+            case 4:
+                lastName = o.toString();
+                break;
+            case 5:
+                email = o.toString();
+                break;
+            case 6:
+                password = o.toString();
+                break;
+            case 7:
+                rol = Integer.valueOf(o.toString());
+                break;
+            case 8:
+                folios = (String[]) o;
+                break;
+            default:
+                break;
+        }
+    }
+
+    @Override
+    public void getPropertyInfo(int i, Hashtable hashtable, PropertyInfo propertyInfo) {
+        switch (i) {
+            case 0:
+                propertyInfo.type = PropertyInfo.STRING_CLASS;
+                propertyInfo.name = "codError";
+                break;
+            case 1:
+                propertyInfo.type = PropertyInfo.STRING_CLASS;
+                propertyInfo.name = "msgError";
+                break;
+            case 2:
+                propertyInfo.type = PropertyInfo.INTEGER_CLASS;
+                propertyInfo.name = "idUser";
+                break;
+            case 3:
+                propertyInfo.type = PropertyInfo.STRING_CLASS;
+                propertyInfo.name = "name";
+                break;
+            case 4:
+                propertyInfo.type = PropertyInfo.STRING_CLASS;
+                propertyInfo.name = "lastName";
+                break;
+            case 5:
+                propertyInfo.type = PropertyInfo.STRING_CLASS;
+                propertyInfo.name = "email";
+                break;
+            case 6:
+                propertyInfo.type = PropertyInfo.STRING_CLASS;
+                propertyInfo.name = "password";
+                break;
+            case 7:
+                propertyInfo.type = PropertyInfo.INTEGER_CLASS;
+                propertyInfo.name = "rol";
+                break;
+            case 8:
+                propertyInfo.type = PropertyInfo.VECTOR_CLASS;
+                propertyInfo.name = "folios";
+                break;
+            default:
+                break;
+        }
+    }
 }

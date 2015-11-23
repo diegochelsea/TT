@@ -6,6 +6,13 @@
     tools:context="com.nad.tt.activity.user.UserActivity"
     >
 
+    <AutoCompleteTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtAutoComUser"
+        android:completionThreshold="1"
+        android:visibility="gone"/>
+
     <EditText
         android:id="@+id/txtName"
         style="@style/lblHintRequired"
@@ -54,11 +61,17 @@
         android:id="@+id/lblErrorPass"
         style="@style/lblError"/>
 
+    <Spinner android:id="@+id/spinnerRoles"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        />
+
     <LinearLayout style="@style/linear_layout_center_horizontal">
         <Button
             android:id="@+id/btnUserSave"
             style="@style/btnsStatus"
-            android:onClick=""
+            android:onClick="actionSaveUser"
             android:text="@string/status_btn_save" />
 
         <Button

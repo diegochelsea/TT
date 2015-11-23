@@ -28,25 +28,11 @@
             android:name=".StartActivity"
             android:label="@string/title_activity_start"></activity>
         <activity
-            android:name="com.nad.tt.com.nad.tt.activity.folio.FolioActivity"
-            android:label="@string/title_activity_folio"></activity>
-        <activity
             android:name="com.nad.tt.activity.folio.FolioActivity"
             android:label="@string/title_activity_folio"></activity>
         <activity
             android:name="com.nad.tt.activity.monitoring.MonitoringActivity"
             android:label="@string/title_activity_monitoring"></activity>
-        </activity>
-
-        <activity
-            android:name="com.nad.tt.activity.folio.ActivitySetFolio"
-            android:label="@string/title_activity_user" >
-        </activity>
-
-        <activity
-            android:name="com.nad.tt.activity.folio.FolioActivity"
-            android:label="@string/title_activity_user" >
-        </activity>
 
         <activity
             android:name="com.nad.tt.activity.follow.FollowActivity"

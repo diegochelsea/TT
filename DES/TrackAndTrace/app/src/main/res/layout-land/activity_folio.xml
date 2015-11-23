@@ -80,6 +80,5 @@
             android:visibility="gone"
             android:text="@string/lbl_followup"
             />
-        <!-- style="@style/btnsStatus" -->
     </LinearLayout>
 </LinearLayout>

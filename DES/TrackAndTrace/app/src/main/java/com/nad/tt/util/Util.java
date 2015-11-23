@@ -1,12 +1,15 @@
 package com.nad.tt.util;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.media.effect.EffectUpdateListener;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.nad.tt.activity.folio.FolioActivity;
 import com.nad.tt.activity.login.LoginActivity;
@@ -145,5 +148,13 @@ public final class Util {
     private static void resetLblError(TextView textView){
         textView.setText(Constants.EMPTY_STRING);
         textView.setVisibility(View.GONE);
+    }
+
+    public static void showToast(String msg, Context context) {
+        if (msg != null && !"".equals(msg)) {
+            Toast toast = Toast.makeText(context, msg, Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.show();
+        }
     }
 }

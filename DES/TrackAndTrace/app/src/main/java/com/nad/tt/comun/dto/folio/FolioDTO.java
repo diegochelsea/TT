@@ -1,69 +1,59 @@
 package com.nad.tt.comun.dto.folio;
 
+import com.nad.tt.util.DataType;
+import com.nad.tt.util.TTWSConstants;
+
+import org.ksoap2.serialization.KvmSerializable;
+import org.ksoap2.serialization.PropertyInfo;
+
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.List;
 
 /**
  * Created by TI-MAURICIO on 15/11/2015.
  */
-public class FolioDTO implements Serializable {
+public class FolioDTO implements KvmSerializable {
 
-    private String folio;
-    private String sorce;
-    private String receiver;
-    private String status;
-
-    private ArrayList<String> users;
+    public String codError;
+    public  String msgError;
+    public  int idFolio;
+    public  String beginning = "";
+    public String destination = "";
+    public  String status = "";
+    public String[] users;
 
     public FolioDTO() {
-
+        // TODO Auto-generated constructor stub
     }
 
-    public FolioDTO(String folio, String sorce, String receiver, String status) {
-        this.folio = folio;
-        this.sorce = sorce;
-        this.receiver = receiver;
+    public FolioDTO(int idFolio, String beginning, String destination,
+                    String status) {
+        super();
+        this.idFolio = idFolio;
+        this.beginning = beginning;
+        this.destination = destination;
         this.status = status;
     }
 
-
-    public ArrayList<String> getUsers() {
-        return users;
+    @Override
+    public Object getProperty(int i) {
+        return null;
     }
 
-    public void setUsers(ArrayList<String> users) {
-        this.users = users;
+    @Override
+    public int getPropertyCount() {
+        return 0;
     }
 
-    public String getFolio() {
-        return folio;
+    @Override
+    public void setProperty(int i, Object o) {
+
     }
 
-    public void setFolio(String folio) {
-        this.folio = folio;
-    }
+    @Override
+    public void getPropertyInfo(int i, Hashtable hashtable, PropertyInfo propertyInfo) {
 
-    public String getSorce() {
-        return sorce;
-    }
-
-    public void setSorce(String sorce) {
-        this.sorce = sorce;
-    }
-
-    public String getReceiver() {
-        return receiver;
-    }
-
-    public void setReceiver(String receiver) {
-        this.receiver = receiver;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 }

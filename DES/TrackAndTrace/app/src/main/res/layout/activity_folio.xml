@@ -3,6 +3,13 @@
     style="@style/linear_layout_content_vertical"
     tools:context="com.nad.tt.com.nad.tt.activity.folio.FolioActivity">
 
+    <AutoCompleteTextView
+        android:id="@+id/txtFolioAutoComplete"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/lbl_autocomplete_folio"
+        android:completionThreshold="1"/>
+
     <EditText
         android:id="@+id/txtFolio"
         style="@style/lblHintRequired"

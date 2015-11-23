@@ -25,6 +25,9 @@ public class LoginActivity extends Activity {
     private TextView lblErrorUser;
     private TextView lblErrorPassword;
     private UserDAO userDAO;
+
+    ElementDTO elementEmail = null;
+    ElementDTO elementPass = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,9 +35,7 @@ public class LoginActivity extends Activity {
         init();
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
-        userDAO = new UserDAO();
-        userDAO.login();
-    }
+        }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -54,16 +55,18 @@ public class LoginActivity extends Activity {
     }
 
     public void init(){
+        userDAO = new UserDAO();
         txtUser = (EditText)(findViewById(R.id.txt_user));
         txtPassword = (EditText)(findViewById(R.id.txt_password));
         lblErrorUser = (TextView)findViewById(R.id.lblErrorEmail);
         lblErrorPassword = (TextView)findViewById(R.id.lblErroPassword);
 
-        ElementDTO elementEmail = new ElementDTO(txtUser, true, Constants.REGEXP_EMAIL, "Email", lblErrorUser, Constants.ERROR_CODE_OK);
-        ElementDTO elementPass = new ElementDTO(txtPassword, true, Constants.REGEXP_PASS, "Password", lblErrorPassword, Constants.ERROR_CODE_OK);
+        elementEmail = new ElementDTO(txtUser, true, Constants.REGEXP_EMAIL, "Email", lblErrorUser, Constants.ERROR_CODE_OK);
+        elementPass = new ElementDTO(txtPassword, true, Constants.REGEXP_PASS, "Password", lblErrorPassword, Constants.ERROR_CODE_OK);
 
         txtUser.addTextChangedListener(watcher(elementEmail));
         txtPassword.addTextChangedListener(watcher(elementPass));
+
         Log.d(Constants.LOG_NAD, "INIT");
     }
 
@@ -91,6 +94,18 @@ public class LoginActivity extends Activity {
     }
 
     public void actionLogin(View view){
-        Util.startActivityByClass(StartActivity.class, this);
+        if (Util.isValidComponent(elementEmail) && Util.isValidComponent(elementPass)){
+
+        UserDTO userDTO = new UserDTO();
+            userDTO.email = txtUser.getText().toString();
+            userDTO.password = txtPassword.getText().toString();
+            userDTO = userDAO.login(userDTO);
+            if (Constants.ERROR_CODE_OK.equals(userDTO.codError)){
+                Util.startActivityByClass(StartActivity.class, this);
+            } else {
+                Util.showToast(userDTO.msgError, this);
+            }
+        }
+
     }
 }

@@ -36,7 +36,7 @@ public class FollowActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_follow);
-        FolioDTO folioDTO =  new FolioDTO("2222222","USA","CANADA","ch");
+        FolioDTO folioDTO =  new FolioDTO(2222222,"USA","CANADA","ch");
         init();
         getFolio(folioDTO);
     }
@@ -64,11 +64,11 @@ public class FollowActivity extends Activity {
     public void getFolio(FolioDTO folioDTO)
     {
         String st = "";
-        lblFolio.setText(folioDTO.getFolio().toString());
-        lblSorce.setText(folioDTO.getSorce().toString());
-        lblReceiver.setText(folioDTO.getReceiver().toString());
+        lblFolio.setText(String.valueOf(folioDTO.idFolio));
+        lblSorce.setText(folioDTO.beginning);
+        lblReceiver.setText(folioDTO.destination);
 
-        st = folioDTO.getStatus();
+        st = folioDTO.status;
 
         switch (st)
         {

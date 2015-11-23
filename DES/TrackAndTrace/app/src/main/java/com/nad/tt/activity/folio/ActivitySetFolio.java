@@ -91,7 +91,7 @@ public class ActivitySetFolio extends Activity {
     {
         int result = 0;
         if (!listItems.isEmpty()) {
-            fo.setUsers(listItems);
+            fo.users = listItems.toArray(new String[listItems.size()]);
             FolioDAO fd = new FolioDAO();
             result = fd.insert(fo);
         }

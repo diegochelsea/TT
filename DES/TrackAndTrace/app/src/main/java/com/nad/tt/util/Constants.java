@@ -21,8 +21,10 @@ public final class Constants {
 
     public static final String REGEXP_NAME_USER  = "^[A-ZÑ]{1}[a-zÑáéíóú]{1,15}$";
     public static final String REGEXP_LAST_NAME_USER  = "^[A-ZÑ]{1}[a-zÑáéíóú]{1,15}$";
-    public static final String REGEXP_EMAIL = "^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,3})$";
-    public static final String REGEXP_PASS = "^(?=^.{8,}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$";
+//    public static final String REGEXP_EMAIL = "^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,3})$";
+//    public static final String REGEXP_PASS = "^(?=^.{8,}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$";
+    public static final String REGEXP_EMAIL = "^[a-z]{5,10}$";
+    public static final String REGEXP_PASS = "^[a-z0-9]{5,10}$";
 
     // Constants to save strings logs
     public static final String LOG_NAD  = "LOG-NAD";
@@ -36,13 +38,26 @@ public final class Constants {
     public static final String ERROR_CODE_INVALID_FORMAT  = "E001";
     public static final String ERROR_CODE_REQUIRED  = "E002";
     public static final String ERROR_CODE_OK  = "OK";
+    public static final String ERROR_CODE_NOK  = "NOK";
 
 
     // Costants to get connection to web service
-    public static final String URL = "http://192.168.0.12:8484/WSTT/services/UserDAOImpl";
-    public static final String NAME_SAPACE = "http://dto.comun.ws.tt.nad.com";
-    public static final String SOAP_ACTION = "http://dto.comun.ws.tt.nad.com/logInTest";
-    public static final String METHOD = "logInTest";
+//    public static final String URL = "http://10.42.1.152:11107/WSTT/services/UserDAOImpl";
+    public static final String URL = "http://192.168.1.1:11107/WSTT/services/UserDAOImpl";
+    public static final String NAME_SAPACE = "http://user.impl.dao.ws.tt.nad.com";
+
+    // Constants to save methods name from WS
+    public static final String METHOD_SAVE_USER = "saveUser";
+    public static final String METHOD_UPDATE_USER = "updateUser";
+    public static final String METHOD_DELETE_USER = "deleteUser";
+    public static final String METHOD_SAVE_FOLIO = "saveFolio";
+    public static final String METHOD_UPDATE_FOLIO = "updateFolio";
+    public static final String METHOD_DELETE_FOLIO = "deleteFolio";
+    public static final String METHOD_LOGIN = "logIn";
+    public static final String METHOD_SELECT_ALL_USERS = "selectAllUsers";
+    public static final String METHOD_SELECT_UNIQ_USER = "selectUniqUser";
+    public static final String METHOD_SELECT_USER_FOLIOS = "selectUserFolios";
+    public static final String METHOD_SELECT_ROLES = "selectRoles";
 
     //Costants to set an action
     public static final String INSERT = "logIn";
@@ -52,9 +67,15 @@ public final class Constants {
     public static final String INSERTED = "inserted";
     public static final String ERROR = "Error ocurred";
 
-    //Constant to set an accion2
+    //Constants to save parameter name of methods from Web Service
     public static final String USER_DTO = "userDTO";
     public static final String STATUS_DTO = "statusDTO";
     public static final String FOLIO_DTO = "folioDTO";
     public static final String FOLLOWUP_DTO = "followupDTO";
+
+    //Constants to save dto class name
+    public static final String CLASS_USER_DTO = "UserDTO";
+    public static final String CLASS_STATUS_DTO = "StatusDTO";
+    public static final String CLASS_FOLIO_DTO = "FolioDTO";
+    public static final String CLASS_FOLLOWUP_DTO = "FollowupDTO";
 }

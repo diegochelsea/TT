@@ -25,6 +25,7 @@ import com.nad.tt.util.Util;
 
 import android.widget.AdapterView.OnItemClickListener;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -133,16 +134,16 @@ public class FolioActivity extends Activity {
         FolioDAO fa = new FolioDAO();
         List<String> ls = new ArrayList<>();
         FolioDTO fod = new FolioDTO();
-        fod.setFolio(textAutoComplete.getText().toString());
+        fod.idFolio = Integer.valueOf(textAutoComplete.getText().toString());
         ls = fa.select(fod);
 
-        fod.setFolio(ls.get(0).toString());
-        fod.setSorce(ls.get(1));
-        fod.setReceiver(ls.get(2));
-        fod.setStatus(ls.get(3));
+        fod.idFolio = Integer.valueOf(ls.get(0).toString());
+        fod.beginning = ls.get(1);
+        fod.destination = ls.get(2);
+        fod.status = ls.get(3);
 
         Intent r = new Intent(this, ActivitySetFolio.class);
-        r.putExtra("FolioDTO", fod);
+        r.putExtra("FolioDTO", (Serializable) fod);
 
       //  btnNext.setVisibility(0);
       //  btnFollowin.setVisibility(1);
@@ -163,11 +164,11 @@ public class FolioActivity extends Activity {
                 if(Util.isValidComponent(validateDestination()))
                 {
                     FolioDTO fod = new FolioDTO();
-                    fod.setFolio(folio);
-                    fod.setReceiver(destination);
-                    fod.setSorce(begining);
+                    fod.idFolio = Integer.valueOf(folio);
+                    fod.destination = destination;
+                    fod.beginning = begining;
                     Intent r = new Intent(this, ActivitySetFolio.class);
-                    r.putExtra("FolioDTO", fod);
+                    r.putExtra("FolioDTO", (Serializable) fod);
                     startActivity(r);
                 }
 
