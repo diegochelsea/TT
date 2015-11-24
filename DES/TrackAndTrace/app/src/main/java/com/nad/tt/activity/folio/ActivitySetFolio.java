@@ -28,6 +28,7 @@ public class ActivitySetFolio extends Activity {
     private AutoCompleteTextView textView;
     private ListView list;
     private String item;
+    private TextView lblAssignFolio;
 
     ArrayList<String> listItems = new ArrayList<String>();
     ArrayAdapter<String> adapter1;
@@ -41,14 +42,21 @@ public class ActivitySetFolio extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setfolio);
         init();
+
+        Intent h = getIntent();
+        fo = (FolioDTO) h.getSerializableExtra("FolioDTO");
+        setFolio(fo);
+
+    }
+
+    public void setFolio(FolioDTO fol)
+    {
+        lblAssignFolio.setText(fol.getFolio().toString());
     }
 
     public void init() {
-
-        Intent i = getIntent();
-        fo = (FolioDTO) i.getSerializableExtra("FolioDTO");
-
-        btnSave = (View) findViewById(R.id.btn_save);
+        btnSave = (View)findViewById(R.id.btn_save);
+        lblAssignFolio = (TextView)findViewById(R.id.lbl_assign_folio);
 
         list = (ListView) findViewById(R.id.list);
 
@@ -83,8 +91,7 @@ public class ActivitySetFolio extends Activity {
 
     public void goBack(View v)
     {
-        Intent r = new Intent(this, FolioActivity.class);
-        startActivity(r);
+        System.exit(0);
     }
 
     public void goSave(View v)

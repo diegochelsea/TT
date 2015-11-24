@@ -12,6 +12,20 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
+    <style name="linear_layout_left_vertical">
+        <item name="android:gravity">left</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="linear_layout_rght_vertical">
+        <item name="android:gravity">right</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
     <style name="linear_layout_content_vertical">
         <item name="android:orientation">vertical</item>
         <item name="android:layout_width">match_parent</item>
@@ -76,17 +90,6 @@
         <item name="android:padding">1dp</item>
     </style>
 
-    <string name="lbl_title">Search or new folio</string>
-    <string name="lbl_autocomplete_folio">Search folio</string>
-    <string name="lbl_newfolio">Register new Folio</string>
-    <string name="lbl_beginning">Beginning</string>
-    <string name="lbl_destination">Destination</string>
-    <string name="lbl_next">Next</string>
-    <string name="lbl_followup">Follow up</string>
 
-    <string name="lbl_btnback">Back</string>
-    <string name="lbl_btnsave">Save</string>
-    <string name="lbl_assignfolio">Assing Folio</string>
-    <string name="lbl_autocompleteuser">Write user here</string>
 
 </resources>

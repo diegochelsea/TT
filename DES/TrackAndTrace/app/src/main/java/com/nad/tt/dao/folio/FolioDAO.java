@@ -22,9 +22,16 @@ public class FolioDAO {
         int result = 0;
         try {
             result =  1;// wc.getSimpleObject(Constants.INSERT,Constants.SOAP_PRIMITIVE);
+            ls.add("1000002");
+            ls.add("Mexico");
+            ls.add("Usa");
+            ls.add("onf");
         } catch (Exception e) {
             result = 0;
         }
+
+
+
         return ls;
     }
 

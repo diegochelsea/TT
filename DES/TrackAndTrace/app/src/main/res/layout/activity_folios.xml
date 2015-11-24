@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/linear_layout_content_vertical"
+    tools:context="com.nad.tt.activity.folio.FolioActivity">
+
+    <LinearLayout style="@style/linear_layout_center_horizontal">
+        <TextView
+            android:id="@+id/lbl_sorce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="@string/lbl_title"
+            />
+    </LinearLayout>
+
+    <LinearLayout style="@style/linear_layout_left_vertical">
+        <AutoCompleteTextView
+            android:paddingTop="10sp"
+            android:id="@+id/txtautoComplete_folio"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/lbl_autocomplete_folio" />
+
+        <EditText
+            android:id="@+id/txt_folio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/lbl_newfolio"
+            android:inputType="text"
+            android:maxLength="7" />
+
+        <TextView
+            android:id="@+id/lbl_error_folio"
+            style="@style/lblError" />
+
+        <EditText
+            android:id="@+id/txt_origin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/lbl_beginning"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/lbl_error_origin"
+            style="@style/lblError" />
+
+        <EditText
+            android:id="@+id/txtDestination"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/lbl_destination"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/lbl_error_destination"
+            style="@style/lblError" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/linear_layout_center_horizontal">
+        <LinearLayout style="@style/linear_layout_follow_vertical_">
+            <Button
+                android:id="@+id/btnBack_Fol"
+                style="@style/btnBackFolio"
+                android:onClick=""
+                android:text="@string/lbl_btnback" />
+        </LinearLayout>
+        <LinearLayout style="@style/linear_layout_follow_vertical_">
+            <Button
+                android:id="@+id/btnNext"
+                style="@style/btnsStatus"
+                android:onClick="goToSetFolio"
+                android:text="@string/lbl_next" />
+
+            <Button
+                android:id="@+id/btn_followuP"
+                style="@style/btnsStatus"
+                android:onClick="goToFollow"
+                android:visibility="gone"
+                android:text="@string/lbl_followup"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

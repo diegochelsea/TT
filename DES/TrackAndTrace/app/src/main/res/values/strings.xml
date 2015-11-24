@@ -29,4 +29,20 @@
     <string name="lbl_customclearance">Custom C</string>
     <string name="lbl_delivered">Delivered</string>
 
+    <string name="title_folios">Folios</string>
+
+    <string name="lbl_title">Search or new folio</string>
+    <string name="lbl_autocomplete_folio">Search folio</string>
+    <string name="lbl_newfolio">Register new Folio</string>
+    <string name="lbl_beginning">Beginning</string>
+    <string name="lbl_destination">Destination</string>
+    <string name="lbl_next">Next</string>
+    <string name="lbl_followup">Follow up</string>
+
+    <string name="lbl_btnback">Back</string>
+    <string name="lbl_btnsave">Save</string>
+    <string name="lbl_assignfolio">Assing Folio:</string>
+    <string name="lbl_autocompleteuser">Write user here</string>
+    <string name="lbl_pipe">|</string>
+
 </resources>

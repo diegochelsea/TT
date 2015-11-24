@@ -5,33 +5,47 @@
     style="@style/linear_layout_content_vertical"
     tools:context="com.nad.tt.activity.folio.ActivitySetFolio">
 
-    <LinearLayout
-        android:id="@+id/layout3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
-
-        <Button
-            android:id="@+id/btn_back"
-            style="@style/btnsStatus"
-            android:text="@string/lbl_btnback"
-            android:gravity="center"
-            android:onClick="goBack"
-            />
-
-        <Button
-            android:id="@+id/btn_save"
-            style="@style/btnsStatus"
-            android:text="@string/lbl_btnsave"
-            android:gravity="center"
-            android:onClick="goSave"
-            />
+    <LinearLayout style="@style/linear_layout_center_horizontal" >
+        <LinearLayout style="@style/linear_layout_follow_vertical_" >
+            <Button
+                android:id="@+id/btn_back"
+                style="@style/btnBackFolio"
+                android:text="@string/lbl_btnback"
+                android:onClick="goBack"
+                />
+        </LinearLayout>
+        <LinearLayout style="@style/linear_layout_follow_vertical_" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_pipe" />
+        </LinearLayout>
+        <LinearLayout style="@style/linear_layout_center_horizontal" >
+            <Button
+                android:id="@+id/btn_save"
+                style="@style/btnSaveFolio"
+                android:text="@string/lbl_btnsave"
+                android:gravity="center"
+                android:onClick="goSave"
+                />
+        </LinearLayout>
     </LinearLayout>
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/lbl_assignfolio" />
+    <LinearLayout style="@style/linear_layout_center_horizontal" >
+        <LinearLayout style="@style/linear_layout_follow_vertical_" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_assignfolio" />
+        </LinearLayout>
+        <LinearLayout style="@style/linear_layout_center_horizontal" >
+            <TextView
+                android:id="@+id/lbl_assign_folio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+        </LinearLayout>
+    </LinearLayout>
 
     <AutoCompleteTextView
         android:id="@+id/txt_user"

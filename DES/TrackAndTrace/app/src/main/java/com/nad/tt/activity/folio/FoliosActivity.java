@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,9 +14,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-
+import com.nad.tt.activity.follow.FollowActivity;
 import com.nad.tt.activity.login.R;
 import com.nad.tt.comun.dto.folio.FolioDTO;
 import com.nad.tt.comun.enumeration.ElementDTO;
@@ -25,45 +23,39 @@ import com.nad.tt.dao.folio.FolioDAO;
 import com.nad.tt.util.Constants;
 import com.nad.tt.util.Util;
 
-import android.widget.AdapterView.OnItemClickListener;
-
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by TI-MAURICIO on 17/11/2015.
+ * Created by TI-MAURICIO on 19/11/2015.
  */
-public class FolioActivity extends Activity {
+public class FoliosActivity extends Activity {
 
     private EditText txtFolio;
     private EditText txtOrigin;
     private EditText txtDestination;
-
     private TextView lblError;
     private TextView lbl_error_origin;
     private TextView lbl_error_destination;
-
     private Button btnNext;
     private Button btnFollowin;
-
     private String folio;
     private String begining;
     private String destination;
-
-    private String[] folios = { "10002", "10003", "20002", "20003" };
+    private String[] folios = { "1000002", "1000003", "2000002", "2000003" };
     private AutoCompleteTextView textAutoComplete;
     private ListView list;
     private String item;
+    private FolioDTO fod;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
-        Log.d("1", "Error clase R");
-        //setContentView(R.layout.activity_folio);
-        //init();
-        Log.d("1", "inicia bien");
+        setContentView(R.layout.activity_folios);
+        init();
+        fod = new FolioDTO();
     }
-
 
     public void init() {
 
@@ -78,20 +70,19 @@ public class FolioActivity extends Activity {
         txtOrigin = (EditText) findViewById(R.id.txt_origin);
         txtDestination = (EditText) findViewById(R.id.txtDestination);
 
+
         lblError = (TextView) findViewById(R.id.lbl_error_folio);
         lbl_error_destination = (TextView) findViewById(R.id.lbl_error_destination);
-        lblError = (TextView) findViewById(R.id.lbl_error_origin);
+        lbl_error_origin = (TextView) findViewById(R.id.lbl_error_origin);
 
         btnNext = (Button) findViewById(R.id.btnNext);
         btnFollowin = (Button) findViewById(R.id.btn_followuP);
 
-        Log.d("llega","validacion-------------------");
-        //validacion
         txtFolio.addTextChangedListener(watcher(validateFolio()));
         txtOrigin.addTextChangedListener(watcher(validateOrigin()));
         txtDestination.addTextChangedListener(watcher(validateDestination()));
 
-        textAutoComplete.setOnItemClickListener(new OnItemClickListener() {
+        textAutoComplete.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
@@ -126,24 +117,19 @@ public class FolioActivity extends Activity {
     }
 
     private ElementDTO validateFolio() {
-        Log.d("folio","val");
         return new ElementDTO(txtFolio, true, Constants.REGEXP_FOLIO, "Folio", lblError, Constants.ERROR_CODE_OK);
     }
 
     private ElementDTO validateOrigin() {
-        Log.d("orig","val");
         return new ElementDTO(txtOrigin, true, Constants.REGEXP_ORIGIN, "Begin", lbl_error_origin, Constants.ERROR_CODE_OK);
     }
     private ElementDTO validateDestination() {
-        Log.d("dest","val");
-        return new ElementDTO(txtDestination, true, Constants.REGEXP_DESTINATION, "Destination", lblError, Constants.ERROR_CODE_OK);
+        return new ElementDTO(txtDestination, true, Constants.REGEXP_DESTINATION, "Destination", lbl_error_destination, Constants.ERROR_CODE_OK);
     }
 
     public void query(String item) {
-        Log.d("aut","val");
         FolioDAO fa = new FolioDAO();
         List<String> ls = new ArrayList<>();
-        FolioDTO fod = new FolioDTO();
         fod.setFolio(textAutoComplete.getText().toString());
         ls = fa.select(fod);
 
@@ -152,39 +138,60 @@ public class FolioActivity extends Activity {
         fod.setReceiver(ls.get(2));
         fod.setStatus(ls.get(3));
 
+        txtFolio.setText(ls.get(0).toString());
+        txtOrigin.setText(ls.get(1).toString());
+        txtDestination.setText(ls.get(2).toString());
+
         Intent r = new Intent(this, ActivitySetFolio.class);
         r.putExtra("FolioDTO", fod);
 
-      //  btnNext.setVisibility(0);
-      //  btnFollowin.setVisibility(1);
+        btnNext.setVisibility(View.GONE);
+         btnFollowin.setVisibility(View.VISIBLE);
 
-        txtFolio.setEnabled(true);
-        txtOrigin.setEnabled(true);
-        txtDestination.setEnabled(true);
+        txtFolio.setEnabled(false);
+        txtOrigin.setEnabled(false);
+        txtDestination.setEnabled(false);
 
     }
 
+    public void goToFollow(View view) {
+        Intent r = new Intent(this, FollowActivity.class);
+        r.putExtra("FolioDTO", fod);
+        startActivity(r);
+        limpiarCampos();
+    }
 
-    public void goNext()
-    {
-        if(Util.isValidComponent(validateFolio()))
+    public void goToSetFolio(View view) {
+        if (Util.isValidComponent(validateFolio()))
         {
-            if(Util.isValidComponent(validateOrigin()))
+            if (Util.isValidComponent(validateFolio()))
             {
-                if(Util.isValidComponent(validateDestination()))
+                if (Util.isValidComponent(validateFolio()))
                 {
-                    FolioDTO fod = new FolioDTO();
-                    fod.setFolio(folio);
-                    fod.setReceiver(destination);
-                    fod.setSorce(begining);
-                    Intent r = new Intent(this, ActivitySetFolio.class);
-                    r.putExtra("FolioDTO", fod);
-                    startActivity(r);
-                }
 
+                    fod.setFolio(txtFolio.getText().toString());
+                    fod.setSorce(txtFolio.getText().toString());
+                    fod.setReceiver(txtFolio.getText().toString());
+                    fod.setStatus(Constants.NA);
+
+                    Intent  h= new Intent(this, ActivitySetFolio.class);
+                    h.putExtra("FolioDTO", fod);
+                    startActivity(h);
+                    limpiarCampos();
+                }
             }
         }
+    }
 
+    public void limpiarCampos()
+    {
+            textAutoComplete.setText("");
+            txtFolio.setText("");
+            txtOrigin.setText("");
+            txtDestination.setText("");
+            lblError.setText("");
+            lbl_error_destination.setText("");
+            lbl_error_origin.setText("");
     }
 
 }

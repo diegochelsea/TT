@@ -163,6 +163,14 @@
         </LinearLayout>
     </LinearLayout>
 
+    <LinearLayout style="@style/linear_layout_center_horizontal">
+        <Button
+            android:id="@+id/btn_back_follow"
+            style="@style/btnBackFolio"
+            android:onClick="goToBack"
+            android:text="@string/lbl_btnback" />
+    </LinearLayout>
+
     <Button
         android:id="@+id/btn_hide_active"
         style="@style/btnActiveHide"

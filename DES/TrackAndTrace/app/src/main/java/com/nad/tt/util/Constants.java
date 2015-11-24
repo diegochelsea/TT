@@ -28,8 +28,9 @@ public final class Constants {
 
     // Constants to folio
     public static final String REGEXP_FOLIO = "^[0-9]{7}$";
-    public static final String REGEXP_ORIGIN = "^[A_Z]{1}[a-zÑáéíóú]{2,15}[A-Z]?[a-zÑáéíóú]?$";
-    public static final String REGEXP_DESTINATION = "^[A_Z]{1}[a-zÑáéíóú]{2,15}[A-Z]?[a-zÑáéíóú]?$";
+
+    public static final String REGEXP_ORIGIN = "^[A-Z]{1}[a-záéíóúñ]{2,}([\\s][A-Z]{1}[a-záéíóúñ]{2,})*$";
+    public static final String REGEXP_DESTINATION = "^[A-Z]{1}[a-záéíóúñ]{2,}([\\s][A-Z]{1}[a-záéíóúñ]{2,})*$";
 
     // Constants to error
     public static final String ERROR_CODE_INVALID_FORMAT  = "E001";
@@ -56,4 +57,12 @@ public final class Constants {
     public static final String STATUS_DTO = "statusDTO";
     public static final String FOLIO_DTO = "folioDTO";
     public static final String FOLLOWUP_DTO = "followupDTO";
+
+    //Constants to status
+    public static final String NA = "na";
+    public static final String PICKUP = "pu";
+    public static final String CHEKIN = "ch";
+    public static final String ONFLY = "onf";
+    public static final String CUSTOMC = "cc";
+    public static final String DELIVERED = "del";
 }

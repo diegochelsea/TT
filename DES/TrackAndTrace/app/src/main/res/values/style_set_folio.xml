@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="btnsStatus">
+    <style name="btnSaveFolio">
         <item name="android:background">@android:color/holo_green_dark</item>
+        <item name="android:textColor">#CBEBC7</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_margin">3dp</item>
+    </style>
+
+    <style name="btnBackFolio">
+        <item name="android:background">@android:color/darker_gray</item>
         <item name="android:textColor">#CBEBC7</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>

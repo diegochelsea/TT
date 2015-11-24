@@ -1,6 +1,7 @@
 package com.nad.tt.activity.follow;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
@@ -8,8 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.nad.tt.activity.folio.FoliosActivity;
 import com.nad.tt.activity.login.R;
 import com.nad.tt.comun.dto.folio.FolioDTO;
+import com.nad.tt.util.Constants;
 
 /**
  * Created by TI-MAURICIO on 15/11/2015.
@@ -26,19 +29,26 @@ public class FollowActivity extends Activity {
     private Button btnCustom;
     private Button btnDelivered;
 
+    private Button btnBackFollow;
+
     private Button btnActiveHide;
     private Button btnUnactiveHide;
 
     private Drawable drawableActiveHide;
     private Drawable drawableUnactiveHide;
 
+    FolioDTO fo =  new FolioDTO();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_follow);
-        FolioDTO folioDTO =  new FolioDTO("2222222","USA","CANADA","ch");
+        FolioDTO folioDTO =  new FolioDTO();
         init();
-        getFolio(folioDTO);
+
+        Intent i = getIntent();
+        fo = (FolioDTO) i.getSerializableExtra("FolioDTO");
+        getFolio(fo);
     }
 
     private void init()
@@ -52,6 +62,8 @@ public class FollowActivity extends Activity {
         btnOnFly = (Button)findViewById(R.id.btn_on_fly);
         btnCustom = (Button)findViewById(R.id.btn_custom);
         btnDelivered = (Button)findViewById(R.id.btn_deliveres);
+
+        btnBackFollow = (Button)findViewById(R.id.btn_back_follow);
 
         btnActiveHide = (Button)findViewById(R.id.btn_hide_active);
         btnUnactiveHide = (Button)findViewById(R.id.btn_hide_unactive);
@@ -72,41 +84,51 @@ public class FollowActivity extends Activity {
 
         switch (st)
         {
-            case "na":
+            case Constants.NA:
                 btnCheckin.setEnabled(false);
                 btnOnFly.setEnabled(false);
                 btnCustom.setEnabled(false);
                 btnDelivered.setEnabled(false);
                 break;
-            case "pu":
+            case Constants.PICKUP:
                 btnPickUp.setBackground(drawableActiveHide);
                 btnPickUp.setEnabled(false);
                 btnOnFly.setEnabled(false);
                 btnCustom.setEnabled(false);
                 btnDelivered.setEnabled(false);
                 break;
-            case "ch":
+            case Constants.CHEKIN:
+                btnPickUp.setBackground(drawableActiveHide);
                 btnCheckin.setBackground(drawableActiveHide);
                 btnPickUp.setEnabled(false);
                 btnCheckin.setEnabled(false);
                 btnCustom.setEnabled(false);
                 btnDelivered.setEnabled(false);
                 break;
-            case "onf":
+            case Constants.ONFLY:
+                btnPickUp.setBackground(drawableActiveHide);
+                btnCheckin.setBackground(drawableActiveHide);
                 btnOnFly.setBackground(drawableActiveHide);
                 btnPickUp.setEnabled(false);
                 btnCheckin.setEnabled(false);
                 btnOnFly.setEnabled(false);
                 btnDelivered.setEnabled(false);
                 break;
-            case "cc":
+            case Constants.CUSTOMC:
+                btnPickUp.setBackground(drawableActiveHide);
+                btnCheckin.setBackground(drawableActiveHide);
+                btnOnFly.setBackground(drawableActiveHide);
                 btnCustom.setBackground(drawableActiveHide);
                 btnPickUp.setEnabled(false);
                 btnCheckin.setEnabled(false);
                 btnCustom.setEnabled(false);
                 btnOnFly.setEnabled(false);
                 break;
-            case "del":
+            case Constants.DELIVERED:
+                btnPickUp.setBackground(drawableActiveHide);
+                btnCheckin.setBackground(drawableActiveHide);
+                btnOnFly.setBackground(drawableActiveHide);
+                btnCustom.setBackground(drawableActiveHide);
                 btnDelivered.setBackground(drawableActiveHide);
                 btnPickUp.setEnabled(false);
                 btnCheckin.setEnabled(false);
@@ -118,7 +140,8 @@ public class FollowActivity extends Activity {
 
     }
 
+    public void goToBack(View view) {
 
-
-
+        System.exit(0);
+    }
 }
