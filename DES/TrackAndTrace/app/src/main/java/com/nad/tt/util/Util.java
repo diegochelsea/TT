@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.nad.tt.activity.folio.FolioActivity;
+import com.nad.tt.activity.folio.FoliosActivity;
 import com.nad.tt.activity.login.LoginActivity;
 import com.nad.tt.activity.login.R;
 import com.nad.tt.activity.login.StartActivity;
@@ -73,7 +73,7 @@ public final class Util {
                 Util.startActivityByClass(LoginActivity.class, activity);
                 return true;
             case R.id.action_catalog_folio:
-                Util.startActivityByClass(FolioActivity.class, activity);
+                Util.startActivityByClass(FoliosActivity.class, activity);
                 return true;
             case R.id.action_catalog_monitoring:
                 Util.startActivityByClass(MonitoringActivity.class, activity);

@@ -3,6 +3,7 @@ package com.nad.tt.activity.folio;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -23,6 +24,7 @@ import com.nad.tt.dao.folio.FolioDAO;
 import com.nad.tt.util.Constants;
 import com.nad.tt.util.Util;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -130,12 +132,12 @@ public class FoliosActivity extends Activity {
     public void query(String item) {
         FolioDAO fa = new FolioDAO();
         List<String> ls = new ArrayList<>();
-        fod.setFolio(textAutoComplete.getText().toString());
+        fod.setIdFolio(Integer.parseInt(textAutoComplete.getText().toString()));
         ls = fa.select(fod);
 
-        fod.setFolio(ls.get(0).toString());
-        fod.setSorce(ls.get(1));
-        fod.setReceiver(ls.get(2));
+        fod.setIdFolio(Integer.parseInt(ls.get(0).toString()));
+        fod.setBeginning(ls.get(1));
+        fod.setDestination(ls.get(2));
         fod.setStatus(ls.get(3));
 
         txtFolio.setText(ls.get(0).toString());
@@ -169,14 +171,15 @@ public class FoliosActivity extends Activity {
                 if (Util.isValidComponent(validateFolio()))
                 {
 
-                    fod.setFolio(txtFolio.getText().toString());
-                    fod.setSorce(txtFolio.getText().toString());
-                    fod.setReceiver(txtFolio.getText().toString());
+                    fod.setIdFolio(Integer.parseInt(txtFolio.getText().toString()));
+                    fod.setBeginning(txtOrigin.getText().toString());
+                    fod.setDestination(txtDestination.getText().toString());
                     fod.setStatus(Constants.NA);
 
                     Intent  h= new Intent(this, ActivitySetFolio.class);
                     h.putExtra("FolioDTO", fod);
                     startActivity(h);
+
                     limpiarCampos();
                 }
             }

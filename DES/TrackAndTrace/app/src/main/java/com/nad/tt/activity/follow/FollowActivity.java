@@ -143,7 +143,26 @@ public class FollowActivity extends Activity {
     }
 
     public void goToBack(View view) {
-
         System.exit(0);
     }
+
+    public void setPickUp(View view) {
+        System.exit(0);
+    }
+
+    public void setCheckin(View view) {
+        System.exit(0);
+    }
+
+    public void setOnFly(View view) {
+        System.exit(0);
+    }
+
+    public void setCustomC(View view) {
+        System.exit(0);
+    }
+    public void setDelivered(View view) {
+        System.exit(0);
+    }
+
 }

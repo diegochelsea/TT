@@ -1,27 +1,16 @@
 package com.nad.tt.comun.dto.folio;
 
-import com.nad.tt.util.DataType;
-import com.nad.tt.util.TTWSConstants;
-
-import org.ksoap2.serialization.KvmSerializable;
-import org.ksoap2.serialization.PropertyInfo;
-
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Hashtable;
-import java.util.List;
 
 /**
  * Created by TI-MAURICIO on 15/11/2015.
  */
-public class FolioDTO implements KvmSerializable {
+public class FolioDTO implements Serializable {
 
-    public String codError;
-    public  String msgError;
-    public  int idFolio;
-    public  String beginning = "";
+    public int idFolio;
+    public String beginning = "";
     public String destination = "";
-    public  String status = "";
+    public String status = "";
     public String[] users;
 
     public FolioDTO() {
@@ -37,23 +26,45 @@ public class FolioDTO implements KvmSerializable {
         this.status = status;
     }
 
-    @Override
-    public Object getProperty(int i) {
-        return null;
+    public int getIdFolio() {
+        return idFolio;
     }
 
-    @Override
-    public int getPropertyCount() {
-        return 0;
+    public void setIdFolio(int idFolio) {
+        this.idFolio = idFolio;
     }
 
-    @Override
-    public void setProperty(int i, Object o) {
-
+    public String getBeginning() {
+        return beginning;
     }
 
-    @Override
-    public void getPropertyInfo(int i, Hashtable hashtable, PropertyInfo propertyInfo) {
+    public void setBeginning(String beginning) {
+        this.beginning = beginning;
+    }
 
+    public String getDestination() {
+        return destination;
+    }
+
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String[] getUsers() {
+        return users;
+    }
+
+    public void setUsers(String[] users) {
+        this.users = users;
     }
 }
+
+

@@ -43,15 +43,16 @@ public class ActivitySetFolio extends Activity {
         setContentView(R.layout.activity_setfolio);
         init();
 
-        Intent h = getIntent();
-        fo = (FolioDTO) h.getSerializableExtra("FolioDTO");
+        Intent i = getIntent();
+        fo = (FolioDTO) i.getSerializableExtra("FolioDTO");
         setFolio(fo);
 
     }
 
-    public void setFolio(FolioDTO fol)
+    public void setFolio(FolioDTO folioDto)
     {
-        lblAssignFolio.setText(fol.getFolio().toString());
+
+        lblAssignFolio.setText(String.valueOf(folioDto.idFolio));
     }
 
     public void init() {

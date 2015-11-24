@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/linear_layout_content_vertical"
-    tools:context="com.nad.tt.activity.folio.FolioActivity">
+    tools:context="com.nad.tt.activity.folio.FoliosActivity">
 
     <LinearLayout style="@style/linear_layout_center_horizontal">
         <TextView

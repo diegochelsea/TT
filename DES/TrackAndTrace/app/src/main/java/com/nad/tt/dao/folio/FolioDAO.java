@@ -29,9 +29,6 @@ public class FolioDAO {
         } catch (Exception e) {
             result = 0;
         }
-
-
-
         return ls;
     }
 
