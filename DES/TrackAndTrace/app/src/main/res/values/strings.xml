@@ -41,6 +41,7 @@
     <string name="lbl_customclearance">Custom C</string>
     <string name="lbl_delivered">Delivered</string>
 
+    <string name="title_folios">Folios</string>
 
     <string name="lbl_title">Search or new folio</string>
     <string name="lbl_autocomplete_folio">Search folio</string>
@@ -52,7 +53,13 @@
 
     <string name="lbl_btnback">Back</string>
     <string name="lbl_btnsave">Save</string>
+
     <string name="lbl_assignfolio">Assing Folio</string>
     <string name="lbl_autocompleteuser">Write some user here</string>
     <string name="lbl_autocompletefolio">Write some folio here</string>
+
+    <string name="lbl_assignfolio">Assing Folio:</string>
+    <string name="lbl_autocompleteuser">Write user here</string>
+    <string name="lbl_pipe">|</string>
+
 </resources>

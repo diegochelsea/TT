@@ -12,6 +12,20 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
+    <style name="linear_layout_left_vertical">
+        <item name="android:gravity">left</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="linear_layout_rght_vertical">
+        <item name="android:gravity">right</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
     <style name="linear_layout_content_vertical">
         <item name="android:orientation">vertical</item>
         <item name="android:layout_width">match_parent</item>
@@ -77,6 +91,7 @@
         <item name="android:padding">1dp</item>
     </style>
 
+
     <style name="generalGreenBtn">
         <item name="android:background">@android:color/holo_green_dark</item>
         <item name="android:textColor">#CBEBC7</item>
@@ -84,4 +99,5 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_margin">3dp</item>
     </style>
+
 </resources>
