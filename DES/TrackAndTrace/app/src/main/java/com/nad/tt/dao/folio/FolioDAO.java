@@ -17,19 +17,9 @@ public class FolioDAO {
         wc = new WsConection();
     }
 
-    public List<String> select(FolioDTO folioDTO) {
-        List<String> ls = new ArrayList<>() ;
-        int result = 0;
-        try {
-            result =  1;// wc.getSimpleObject(Constants.INSERT,Constants.SOAP_PRIMITIVE);
-            ls.add("1000002");
-            ls.add("Mexico");
-            ls.add("Usa");
-            ls.add("onf");
-        } catch (Exception e) {
-            result = 0;
-        }
-        return ls;
+    public List<FolioDTO> selectAllFolio() {
+
+        return null;
     }
 
     public int insert(FolioDTO folioDTO) {

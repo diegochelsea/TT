@@ -2,6 +2,7 @@ package com.nad.tt.activity.folio;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.Loader;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.text.Editable;
@@ -44,11 +45,12 @@ public class FoliosActivity extends Activity {
     private String folio;
     private String begining;
     private String destination;
-    private String[] folios = { "1000002", "1000003", "2000002", "2000003" };
+    private List<FolioDTO> folios=null;
     private AutoCompleteTextView textAutoComplete;
     private ListView list;
     private String item;
     private FolioDTO fod;
+    private FolioDAO folioDAO = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -61,12 +63,9 @@ public class FoliosActivity extends Activity {
 
     public void init() {
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_dropdown_item_1line, folios);
+        folioDAO = new FolioDAO();
 
         textAutoComplete = (AutoCompleteTextView) findViewById(R.id.txtautoComplete_folio);
-        textAutoComplete.setThreshold(1);
-        textAutoComplete.setAdapter(adapter);
 
         txtFolio = (EditText) findViewById(R.id.txt_folio);
         txtOrigin = (EditText) findViewById(R.id.txt_origin);
@@ -130,15 +129,15 @@ public class FoliosActivity extends Activity {
     }
 
     public void query(String item) {
-        FolioDAO fa = new FolioDAO();
-        List<String> ls = new ArrayList<>();
+
+        List<FolioDAO> ls = new ArrayList<>();
         fod.setIdFolio(Integer.parseInt(textAutoComplete.getText().toString()));
-        ls = fa.select(fod);
+        //ls = folioDAO.selectAllFolio(fod);
 
         fod.setIdFolio(Integer.parseInt(ls.get(0).toString()));
-        fod.setBeginning(ls.get(1));
-        fod.setDestination(ls.get(2));
-        fod.setStatus(ls.get(3));
+        //fod.setBeginning(ls.get(1));
+        //fod.setDestination(ls.get(2));
+        //fod.setStatus(ls.get(3));
 
         txtFolio.setText(ls.get(0).toString());
         txtOrigin.setText(ls.get(1).toString());
@@ -184,6 +183,36 @@ public class FoliosActivity extends Activity {
                 }
             }
         }
+    }
+
+    private String initFolios()
+    {
+        String result= Constants.EMPTY_STRING;
+        try {
+            folios = folioDAO.selectAllFolio();
+            if (folios!= null && !folios.isEmpty()) {
+                String[] foliosArray = new  String[folios.size()];
+                for (int i = 0; i  < folios.size(); i++) {
+                    foliosArray[i] = String.valueOf(folios.get(i).idFolio);
+                }
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                        android.R.layout.simple_dropdown_item_1line, foliosArray);
+                textAutoComplete.setAdapter(adapter);
+            }
+            else {
+                result = "Not exists folios, ¡Try later!";
+            }
+
+
+
+
+        }catch (Exception e)
+        {
+            Log.d(Constants.LOG_NAD, e.getMessage());
+            result = "Error: Ocurred an error to select Users";
+        }
+
+        return result;
     }
 
     public void limpiarCampos()
