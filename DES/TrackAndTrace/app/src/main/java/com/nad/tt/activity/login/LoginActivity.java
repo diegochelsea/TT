@@ -101,7 +101,7 @@ public class LoginActivity extends Activity {
             userDTO.password = txtPassword.getText().toString();
             userDTO = userDAO.login(userDTO);
             if (Constants.ERROR_CODE_OK.equals(userDTO.codError)){
-                Util.startActivityByClass(StartActivity.class, this);
+                Util.startActivityByClass(StartActivity.class, this, "");
             } else {
                 Util.showToast(userDTO.msgError, this);
             }

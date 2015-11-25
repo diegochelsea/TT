@@ -64,7 +64,7 @@ public class UserDAO {
     }
 
 
-    public List<RolDTO> getAllRoles() {
+    public List<RolDTO> getAllRoles() throws Exception {
         Vector<SoapObject> soapObjectResult = null;
         List<RolDTO> result = new ArrayList<>();
         try {
@@ -76,13 +76,15 @@ public class UserDAO {
         } catch (Exception e) {
             Log.d("WEB-SERVICE, Expetion: ", e.toString());
             Log.d("WEB-SERVICE, Expetion: ", e.getMessage());
+            throw  new Exception(e.getMessage());
         }
         return result;
     }
 
-    public List<UserDTO> getAllUsers() {
+    public List<UserDTO> getAllUsers() throws Exception {
         Vector<SoapObject> soapObjectResult = null;
         List<UserDTO> result = new ArrayList<>();
+        Log.d("getAllUsers", "init");
         try {
             soapObjectResult = WsConection.getSimpleObject(Constants.METHOD_SELECT_ALL_USERS, false);
             UserDTO userDTO = null;
@@ -100,6 +102,7 @@ public class UserDAO {
         } catch (Exception e) {
             Log.d("WEB-SERVICE, Expetion: ", e.toString());
             Log.d("WEB-SERVICE, Expetion: ", e.getMessage());
+            throw  new Exception(e.getMessage());
         }
         return result;
     }
@@ -115,6 +118,55 @@ public class UserDAO {
                 userDTO.msgError = "¡User saved successfully!";
             }
             Log.d("saveUser", "");
+        } catch (Exception e) {
+            Log.d("WEB-SERVICE, Expetion: ", e.toString());
+            Log.d("WEB-SERVICE, Expetion: ", e.getMessage());
+        }
+        return userDTO;
+    }
+
+    public UserDTO deleteUser(UserDTO userDTO) {
+        int result = 0;
+        Log.d(Constants.LOG_NAD, "Params: " + userDTO.idUser + ", " + userDTO.name);
+        userDTO.codError = Constants.ERROR_CODE_NOK;
+        userDTO.msgError = "¡Error: could not delete the user, try again later!";
+        try {
+            result = WsConection.execStatement(userDTO, Constants.METHOD_DELETE_USER, Constants.USER_DTO);
+            if (result > 0){
+                userDTO.codError = Constants.ERROR_CODE_OK;
+                userDTO.msgError = "¡User deleted successfully!";
+            }
+            Log.d(Constants.LOG_NAD, "deleteUser");
+        } catch (Exception e) {
+            Log.d("WEB-SERVICE, Expetion: ", e.toString());
+            Log.d("WEB-SERVICE, Expetion: ", e.getMessage());
+        }
+        return userDTO;
+    }
+
+    public UserDTO getUniqUser(UserDTO userDTO) {
+        SoapObject soapObjectResult;
+
+        try {
+            soapObjectResult = WsConection.getSimpleObjectWithPatam(Constants.METHOD_SELECT_UNIQ_USER, userDTO);
+            userDTO.idUser = (Integer.valueOf(soapObjectResult.getProperty(ID_USER).toString()));
+            Log.d(Constants.LOG_NAD, "getUniqUser: 1");
+            userDTO.codError = (String.valueOf(soapObjectResult.getProperty(COD_ERROR)));
+            Log.d("WEB-SERVICE", "getUniqUser: 2");
+            userDTO.msgError = (String.valueOf(soapObjectResult.getProperty(MSG_ERROR)));
+            Log.d("WEB-SERVICE", "getUniqUser: 3");
+            userDTO.name = (String.valueOf(soapObjectResult.getProperty(NAME)));
+            Log.d("WEB-SERVICE", "getUniqUser: 4");
+            userDTO.lastName = (String.valueOf(soapObjectResult.getProperty(LAST_NAME)));
+            Log.d("WEB-SERVICE", "getUniqUser: 5");
+            userDTO.email = (String.valueOf(soapObjectResult.getProperty(EMAIL)));
+            Log.d("WEB-SERVICE", "getUniqUser: 6");
+            userDTO.password = (String.valueOf(soapObjectResult.getProperty(PASS)));
+            Log.d("WEB-SERVICE", "getUniqUser: 7");
+            userDTO.rol = (Integer.valueOf(soapObjectResult.getProperty(ROL).toString()));
+            Log.d("WEB-SERVICE", "getUniqUser: 8");
+
+            Log.d("WEB-SERVICE, response: ", userDTO.codError + ", " + userDTO.msgError);
         } catch (Exception e) {
             Log.d("WEB-SERVICE, Expetion: ", e.toString());
             Log.d("WEB-SERVICE, Expetion: ", e.getMessage());

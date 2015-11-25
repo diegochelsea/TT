@@ -7,11 +7,12 @@
     >
 
     <AutoCompleteTextView
+        style="@style/lblHintRequired"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txtAutoComUser"
         android:completionThreshold="1"
-        android:visibility="gone"/>
+        android:hint="@string/lbl_autocompleteuser"/>
 
     <EditText
         android:id="@+id/txtName"
@@ -64,7 +65,7 @@
     <Spinner android:id="@+id/spinnerRoles"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        style="@style/lblHintRequired"
         />
 
     <LinearLayout style="@style/linear_layout_center_horizontal">
@@ -75,14 +76,12 @@
             android:text="@string/status_btn_save" />
 
         <Button
-            android:id="@+id/btnUserCancel"
+            android:id="@+id/btnUserDelete"
             style="@style/btnsStatus"
-            android:text="@string/status_btn_cancel" />
+            android:text="@string/status_btn_delete"
+            android:visibility="gone"
+            android:onClick="actionDeleteUser"/>
 
-        <Button
-            android:id="@+id/btnUserBack"
-            style="@style/btnsStatus"
-            android:text="@string/status_btn_back" />
     </LinearLayout>
 
 

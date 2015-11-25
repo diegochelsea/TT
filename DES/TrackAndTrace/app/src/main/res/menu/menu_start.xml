@@ -3,14 +3,14 @@
     tools:context="com.nad.tt.activity.login.StartActivity">
     <item android:id="@+id/action_start" android:title="@string/action_start"
         android:orderInCategory="100" android:showAsAction="never" />
-    <item android:id="@+id/action_catalog_status" android:title="@string/action_menu_catalog_status"
-        android:orderInCategory="100" android:showAsAction="never" />
+    <!--<item android:id="@+id/action_catalog_status" android:title="@string/action_menu_catalog_status"-->
+        <!--android:orderInCategory="100" android:showAsAction="never" />-->
     <item android:id="@+id/action_catalog_user" android:title="@string/action_menu_catalog_user"
         android:orderInCategory="100" android:showAsAction="never" />
     <item android:id="@+id/action_catalog_folio" android:title="@string/action_menu_catalog_folio"
         android:orderInCategory="100" android:showAsAction="never" />
-    <item android:id="@+id/action_catalog_monitoring" android:title="@string/action_menu_catalog_monitoring"
-        android:orderInCategory="100" android:showAsAction="never" />
+    <!--<item android:id="@+id/action_catalog_monitoring" android:title="@string/action_menu_catalog_monitoring"-->
+        <!--android:orderInCategory="100" android:showAsAction="never" />-->
     <item android:id="@+id/action_log_out" android:title="@string/action_logOut"
         android:orderInCategory="100" android:showAsAction="never" />
 </menu>

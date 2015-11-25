@@ -44,7 +44,8 @@ public final class Constants {
 
     // Costants to get connection to web service
 //    public static final String URL = "http://10.42.1.152:11107/WSTT/services/UserDAOImpl";
-    public static final String URL = "http://192.168.1.1:11107/WSTT/services/UserDAOImpl";
+//    public static final String URL = "http://192.168.1.1:11107/WSTT/services/UserDAOImpl";
+    public static final String URL = "http://192.168.0.4:11107/WSTT/services/UserDAOImpl";
     public static final String NAME_SAPACE = "http://user.impl.dao.ws.tt.nad.com";
 
     // Constants to save methods name from WS
@@ -88,4 +89,6 @@ public final class Constants {
     public static final String CUSTOMC = "cc";
     public static final String DELIVERED = "del";
 
+    //Constants to save activity class name
+    public static final String CLASS_USER_ACTIVITY = "UserActivity";
 }

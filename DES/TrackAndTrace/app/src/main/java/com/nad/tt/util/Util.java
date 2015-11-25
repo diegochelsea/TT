@@ -38,8 +38,11 @@ public final class Util {
     /**
      * Called when the user touch some item menu
      */
-    public static void startActivityByClass(Class<?> classs, Activity activity) {
+    public static void startActivityByClass(Class<?> classs, Activity activity, String nameClass) {
         Intent intent = new Intent(activity.getApplicationContext(), classs);
+        if (Constants.CLASS_USER_ACTIVITY.equals(nameClass)) {
+            intent.putExtra("actionUsr", "add");
+        }
         activity.startActivity(intent);
     }
 
@@ -60,24 +63,24 @@ public final class Util {
     public static boolean showMenu(int id, Activity activity) {
         //noinspection SimplifiableIfStatement
         switch (id) {
-            case R.id.action_catalog_status:
-                Util.startActivityByClass(StatusActivity.class, activity);
-                return true;
+//            case R.id.action_catalog_status:
+//                Util.startActivityByClass(StatusActivity.class, activity, "");
+//                return true;
             case R.id.action_catalog_user:
-                Util.startActivityByClass(UserActivity.class, activity);
+                Util.startActivityByClass(UserActivity.class, activity, Constants.CLASS_USER_ACTIVITY);
                 return true;
             case R.id.action_start:
-                Util.startActivityByClass(StartActivity.class, activity);
+                Util.startActivityByClass(StartActivity.class, activity, "");
                 return true;
             case R.id.action_log_out:
-                Util.startActivityByClass(LoginActivity.class, activity);
+                Util.startActivityByClass(LoginActivity.class, activity, "");
                 return true;
             case R.id.action_catalog_folio:
-                Util.startActivityByClass(FoliosActivity.class, activity);
+                Util.startActivityByClass(FoliosActivity.class, activity, "");
                 return true;
-            case R.id.action_catalog_monitoring:
-                Util.startActivityByClass(MonitoringActivity.class, activity);
-                return true;
+//            case R.id.action_catalog_monitoring:
+//                Util.startActivityByClass(MonitoringActivity.class, activity, "");
+//                return true;
             default:
 //                Util.startActivityByClass();
 
