@@ -39,7 +39,7 @@ public class UserDAO {
         try {
             soapObjectResult = WsConection.getSimpleObjectWithPatam(Constants.METHOD_LOGIN, responseDTO);
             responseDTO.idUser = (Integer.valueOf(soapObjectResult.getProperty(ID_USER).toString()));
-            Log.d("WEB-SERVICE", "login: 1");
+            Log.d("WEB-SERVICE log2", String.valueOf(responseDTO.idUser));
             responseDTO.codError = (String.valueOf(soapObjectResult.getProperty(COD_ERROR)));
             Log.d("WEB-SERVICE", "login: 2");
             responseDTO.msgError = (String.valueOf(soapObjectResult.getProperty(MSG_ERROR)));

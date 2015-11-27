@@ -15,21 +15,21 @@
   <service name="UserDAOImpl" provider="java:RPC" style="wrapped" use="literal">
       <parameter name="wsdlTargetNamespace" value="http://user.impl.dao.ws.tt.nad.com"/>
       <parameter name="wsdlServiceElement" value="UserDAOImplService"/>
-      <parameter name="schemaQualified" value="http://user.impl.dao.ws.tt.nad.com,http://user.dto.ws.tt.nad.com,http://util.ws.tt.nad.com"/>
+      <parameter name="schemaQualified" value="http://user.dto.ws.tt.nad.com,http://user.impl.dao.ws.tt.nad.com,http://util.ws.tt.nad.com"/>
       <parameter name="wsdlServicePort" value="UserDAOImpl"/>
       <parameter name="className" value="com.nad.tt.ws.dao.impl.user.UserDAOImplSoapBindingImpl"/>
       <parameter name="wsdlPortType" value="UserDAOImpl"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation name="selectUserFolios" qname="operNS:selectUserFolios" xmlns:operNS="http://user.impl.dao.ws.tt.nad.com" returnQName="retNS:selectUserFoliosReturn" xmlns:retNS="http://user.impl.dao.ws.tt.nad.com" returnType="rtns:FolioDTO" xmlns:rtns="http://user.dto.ws.tt.nad.com" soapAction="" >
-        <parameter qname="pns:userId" xmlns:pns="http://user.impl.dao.ws.tt.nad.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
-      <operation name="selectAllUsers" qname="operNS:selectAllUsers" xmlns:operNS="http://user.impl.dao.ws.tt.nad.com" returnQName="retNS:selectAllUsersReturn" xmlns:retNS="http://user.impl.dao.ws.tt.nad.com" returnType="rtns:UserDTO" xmlns:rtns="http://user.dto.ws.tt.nad.com" soapAction="" >
-      </operation>
-      <operation name="selectUniqUser" qname="operNS:selectUniqUser" xmlns:operNS="http://user.impl.dao.ws.tt.nad.com" returnQName="retNS:selectUniqUserReturn" xmlns:retNS="http://user.impl.dao.ws.tt.nad.com" returnType="rtns:UserDTO" xmlns:rtns="http://user.dto.ws.tt.nad.com" soapAction="" >
-        <parameter qname="pns:userDTO" xmlns:pns="http://user.impl.dao.ws.tt.nad.com" type="tns:UserDTO" xmlns:tns="http://user.dto.ws.tt.nad.com"/>
+      <operation name="selectUniqFolio" qname="operNS:selectUniqFolio" xmlns:operNS="http://user.impl.dao.ws.tt.nad.com" returnQName="retNS:selectUniqFolioReturn" xmlns:retNS="http://user.impl.dao.ws.tt.nad.com" returnType="rtns:FolioDTO" xmlns:rtns="http://user.dto.ws.tt.nad.com" soapAction="" >
+        <parameter qname="pns:folioDTO" xmlns:pns="http://user.impl.dao.ws.tt.nad.com" type="tns:FolioDTO" xmlns:tns="http://user.dto.ws.tt.nad.com"/>
       </operation>
       <operation name="saveUser" qname="operNS:saveUser" xmlns:operNS="http://user.impl.dao.ws.tt.nad.com" returnQName="retNS:saveUserReturn" xmlns:retNS="http://user.impl.dao.ws.tt.nad.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:userDTO" xmlns:pns="http://user.impl.dao.ws.tt.nad.com" type="tns:UserDTO" xmlns:tns="http://user.dto.ws.tt.nad.com"/>
+      </operation>
+      <operation name="logIn" qname="operNS:logIn" xmlns:operNS="http://user.impl.dao.ws.tt.nad.com" returnQName="retNS:logInReturn" xmlns:retNS="http://user.impl.dao.ws.tt.nad.com" returnType="rtns:UserDTO" xmlns:rtns="http://user.dto.ws.tt.nad.com" soapAction="" >
+        <parameter qname="pns:userDTO" xmlns:pns="http://user.impl.dao.ws.tt.nad.com" type="tns:UserDTO" xmlns:tns="http://user.dto.ws.tt.nad.com"/>
+      </operation>
+      <operation name="selectAllUsers" qname="operNS:selectAllUsers" xmlns:operNS="http://user.impl.dao.ws.tt.nad.com" returnQName="retNS:selectAllUsersReturn" xmlns:retNS="http://user.impl.dao.ws.tt.nad.com" returnType="rtns:UserDTO" xmlns:rtns="http://user.dto.ws.tt.nad.com" soapAction="" >
       </operation>
       <operation name="updateUser" qname="operNS:updateUser" xmlns:operNS="http://user.impl.dao.ws.tt.nad.com" returnQName="retNS:updateUserReturn" xmlns:retNS="http://user.impl.dao.ws.tt.nad.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:userDTO" xmlns:pns="http://user.impl.dao.ws.tt.nad.com" type="tns:UserDTO" xmlns:tns="http://user.dto.ws.tt.nad.com"/>
@@ -37,22 +37,41 @@
       <operation name="deleteUser" qname="operNS:deleteUser" xmlns:operNS="http://user.impl.dao.ws.tt.nad.com" returnQName="retNS:deleteUserReturn" xmlns:retNS="http://user.impl.dao.ws.tt.nad.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:userDTO" xmlns:pns="http://user.impl.dao.ws.tt.nad.com" type="tns:UserDTO" xmlns:tns="http://user.dto.ws.tt.nad.com"/>
       </operation>
+      <operation name="deleteFolio" qname="operNS:deleteFolio" xmlns:operNS="http://user.impl.dao.ws.tt.nad.com" returnQName="retNS:deleteFolioReturn" xmlns:retNS="http://user.impl.dao.ws.tt.nad.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:folioDTO" xmlns:pns="http://user.impl.dao.ws.tt.nad.com" type="tns:FolioDTO" xmlns:tns="http://user.dto.ws.tt.nad.com"/>
+      </operation>
       <operation name="saveFolio" qname="operNS:saveFolio" xmlns:operNS="http://user.impl.dao.ws.tt.nad.com" returnQName="retNS:saveFolioReturn" xmlns:retNS="http://user.impl.dao.ws.tt.nad.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:folioDTO" xmlns:pns="http://user.impl.dao.ws.tt.nad.com" type="tns:FolioDTO" xmlns:tns="http://user.dto.ws.tt.nad.com"/>
       </operation>
-      <operation name="logIn" qname="operNS:logIn" xmlns:operNS="http://user.impl.dao.ws.tt.nad.com" returnQName="retNS:logInReturn" xmlns:retNS="http://user.impl.dao.ws.tt.nad.com" returnType="rtns:UserDTO" xmlns:rtns="http://user.dto.ws.tt.nad.com" soapAction="" >
-        <parameter qname="pns:userDTO" xmlns:pns="http://user.impl.dao.ws.tt.nad.com" type="tns:UserDTO" xmlns:tns="http://user.dto.ws.tt.nad.com"/>
+      <operation name="selectUserFolios" qname="operNS:selectUserFolios" xmlns:operNS="http://user.impl.dao.ws.tt.nad.com" returnQName="retNS:selectUserFoliosReturn" xmlns:retNS="http://user.impl.dao.ws.tt.nad.com" returnType="rtns:FolioDTO" xmlns:rtns="http://user.dto.ws.tt.nad.com" soapAction="" >
+        <parameter qname="pns:userId" xmlns:pns="http://user.impl.dao.ws.tt.nad.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
       <operation name="selectRoles" qname="operNS:selectRoles" xmlns:operNS="http://user.impl.dao.ws.tt.nad.com" returnQName="retNS:selectRolesReturn" xmlns:retNS="http://user.impl.dao.ws.tt.nad.com" returnType="rtns:RolDTO" xmlns:rtns="http://user.dto.ws.tt.nad.com" soapAction="" >
+      </operation>
+      <operation name="selectUniqUser" qname="operNS:selectUniqUser" xmlns:operNS="http://user.impl.dao.ws.tt.nad.com" returnQName="retNS:selectUniqUserReturn" xmlns:retNS="http://user.impl.dao.ws.tt.nad.com" returnType="rtns:UserDTO" xmlns:rtns="http://user.dto.ws.tt.nad.com" soapAction="" >
+        <parameter qname="pns:userDTO" xmlns:pns="http://user.impl.dao.ws.tt.nad.com" type="tns:UserDTO" xmlns:tns="http://user.dto.ws.tt.nad.com"/>
       </operation>
       <operation name="updateFolio" qname="operNS:updateFolio" xmlns:operNS="http://user.impl.dao.ws.tt.nad.com" returnQName="retNS:updateFolioReturn" xmlns:retNS="http://user.impl.dao.ws.tt.nad.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:folioDTO" xmlns:pns="http://user.impl.dao.ws.tt.nad.com" type="tns:FolioDTO" xmlns:tns="http://user.dto.ws.tt.nad.com"/>
       </operation>
-      <operation name="deleteFolio" qname="operNS:deleteFolio" xmlns:operNS="http://user.impl.dao.ws.tt.nad.com" returnQName="retNS:deleteFolioReturn" xmlns:retNS="http://user.impl.dao.ws.tt.nad.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
-        <parameter qname="pns:folioDTO" xmlns:pns="http://user.impl.dao.ws.tt.nad.com" type="tns:FolioDTO" xmlns:tns="http://user.dto.ws.tt.nad.com"/>
-      </operation>
-      <parameter name="allowedMethods" value="selectUniqUser saveFolio selectUserFolios updateFolio saveUser deleteFolio deleteUser selectAllUsers logIn selectRoles updateUser"/>
+      <parameter name="allowedMethods" value="deleteFolio selectAllUsers deleteUser updateUser saveFolio logIn selectUserFolios selectUniqFolio saveUser selectRoles selectUniqUser updateFolio"/>
 
+      <typeMapping
+        xmlns:ns="http://util.ws.tt.nad.com"
+        qname="ns:DataType"
+        type="java:com.nad.tt.ws.util.DataType"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://user.dto.ws.tt.nad.com"
+        qname="ns:FolioDTO"
+        type="java:com.nad.tt.ws.dto.user.FolioDTO"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
       <arrayMapping
         xmlns:ns="http://user.impl.dao.ws.tt.nad.com"
         qname="ns:ArrayOf_xsd_string"
@@ -72,22 +91,6 @@
         xmlns:ns="http://user.dto.ws.tt.nad.com"
         qname="ns:RolDTO"
         type="java:com.nad.tt.ws.dto.user.RolDTO"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="http://user.dto.ws.tt.nad.com"
-        qname="ns:FolioDTO"
-        type="java:com.nad.tt.ws.dto.user.FolioDTO"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="http://util.ws.tt.nad.com"
-        qname="ns:DataType"
-        type="java:com.nad.tt.ws.util.DataType"
         serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
         deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
         encodingStyle=""

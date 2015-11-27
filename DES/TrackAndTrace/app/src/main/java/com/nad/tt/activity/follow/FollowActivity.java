@@ -12,7 +12,9 @@ import android.widget.TextView;
 import com.nad.tt.activity.folio.FoliosActivity;
 import com.nad.tt.activity.login.R;
 import com.nad.tt.comun.dto.folio.FolioDTO;
+import com.nad.tt.dao.folio.FolioDAO;
 import com.nad.tt.util.Constants;
+import com.nad.tt.util.Util;
 
 /**
  * Created by TI-MAURICIO on 15/11/2015.
@@ -37,17 +39,17 @@ public class FollowActivity extends Activity {
     private Drawable drawableActiveHide;
     private Drawable drawableUnactiveHide;
 
-    FolioDTO fo =  new FolioDTO();
+    FolioDTO fo =  null;
+    FolioDAO folioDAO = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_follow);
 
-        FolioDTO folioDTO =  new FolioDTO();
-
         init();
 
+        //folio del intent anterior
         Intent i = getIntent();
         fo = (FolioDTO) i.getSerializableExtra("FolioDTO");
         getFolio(fo);
@@ -55,6 +57,8 @@ public class FollowActivity extends Activity {
 
     private void init()
     {
+        folioDAO = new FolioDAO();
+
         lblFolio = (TextView)findViewById(R.id.lbl_folio);
         lblSorce = (TextView)findViewById(R.id.lbl_sorce_set);
         lblReceiver = (TextView)findViewById(R.id.lbl_receiver_set);
@@ -91,6 +95,13 @@ public class FollowActivity extends Activity {
                 btnOnFly.setEnabled(false);
                 btnCustom.setEnabled(false);
                 btnDelivered.setEnabled(false);
+
+                //Estara habilitado solo el boton PickUp
+                //Llenamos el constructor para actualizar a pc
+                fo.idFolio = folioDTO.idFolio;
+                fo.beginning = folioDTO.beginning;
+                fo.destination = folioDTO.destination;
+                fo.status = Constants.PICKUP;
                 break;
             case Constants.PICKUP:
                 btnPickUp.setBackground(drawableActiveHide);
@@ -98,6 +109,11 @@ public class FollowActivity extends Activity {
                 btnOnFly.setEnabled(false);
                 btnCustom.setEnabled(false);
                 btnDelivered.setEnabled(false);
+
+                fo.idFolio = folioDTO.idFolio;
+                fo.beginning = folioDTO.beginning;
+                fo.destination = folioDTO.destination;
+                fo.status = Constants.CHEKIN;
                 break;
             case Constants.CHEKIN:
                 btnPickUp.setBackground(drawableActiveHide);
@@ -106,6 +122,11 @@ public class FollowActivity extends Activity {
                 btnCheckin.setEnabled(false);
                 btnCustom.setEnabled(false);
                 btnDelivered.setEnabled(false);
+
+                fo.idFolio = folioDTO.idFolio;
+                fo.beginning = folioDTO.beginning;
+                fo.destination = folioDTO.destination;
+                fo.status = Constants.ONFLY;
                 break;
             case Constants.ONFLY:
                 btnPickUp.setBackground(drawableActiveHide);
@@ -115,6 +136,11 @@ public class FollowActivity extends Activity {
                 btnCheckin.setEnabled(false);
                 btnOnFly.setEnabled(false);
                 btnDelivered.setEnabled(false);
+
+                fo.idFolio = folioDTO.idFolio;
+                fo.beginning = folioDTO.beginning;
+                fo.destination = folioDTO.destination;
+                fo.status = Constants.CUSTOMC;
                 break;
             case Constants.CUSTOMC:
                 btnPickUp.setBackground(drawableActiveHide);
@@ -125,6 +151,11 @@ public class FollowActivity extends Activity {
                 btnCheckin.setEnabled(false);
                 btnCustom.setEnabled(false);
                 btnOnFly.setEnabled(false);
+
+                fo.idFolio = folioDTO.idFolio;
+                fo.beginning = folioDTO.beginning;
+                fo.destination = folioDTO.destination;
+                fo.status = Constants.DELIVERED;
                 break;
             case Constants.DELIVERED:
                 btnPickUp.setBackground(drawableActiveHide);
@@ -146,23 +177,17 @@ public class FollowActivity extends Activity {
         System.exit(0);
     }
 
-    public void setPickUp(View view) {
-        System.exit(0);
+    public void setStatus(View view) {
+        FolioDTO folio = new FolioDTO();
+        folio.idFolio = fo.idFolio;
+        folio.beginning = fo.beginning;
+        folio.destination =fo.destination;
+        folio.status = fo.status;
+        folio = folioDAO.updateFolio(folio);
+        getFolio(folio);
+        Util.showToast(String.valueOf(folio.idFolio)+" "+folio.msgError, this);
     }
 
-    public void setCheckin(View view) {
-        System.exit(0);
-    }
 
-    public void setOnFly(View view) {
-        System.exit(0);
-    }
-
-    public void setCustomC(View view) {
-        System.exit(0);
-    }
-    public void setDelivered(View view) {
-        System.exit(0);
-    }
 
 }

@@ -6,17 +6,10 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
   <schema elementFormDefault="qualified" targetNamespace="http://user.impl.dao.ws.tt.nad.com" xmlns="http://www.w3.org/2001/XMLSchema">
    <import namespace="http://util.ws.tt.nad.com"/>
    <import namespace="http://user.dto.ws.tt.nad.com"/>
-   <element name="selectUserFolios">
+   <element name="selectUniqFolio">
     <complexType>
      <sequence>
-      <element name="userId" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="selectUserFoliosResponse">
-    <complexType>
-     <sequence>
-      <element maxOccurs="unbounded" name="selectUserFoliosReturn" type="tns1:FolioDTO"/>
+      <element name="folioDTO" type="tns1:FolioDTO"/>
      </sequence>
     </complexType>
    </element>
@@ -25,27 +18,10 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      <element maxOccurs="unbounded" minOccurs="0" name="item" type="xsd:string"/>
     </sequence>
    </complexType>
-   <element name="selectAllUsers">
-    <complexType/>
-   </element>
-   <element name="selectAllUsersResponse">
+   <element name="selectUniqFolioResponse">
     <complexType>
      <sequence>
-      <element maxOccurs="unbounded" name="selectAllUsersReturn" type="tns1:UserDTO"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="selectUniqUser">
-    <complexType>
-     <sequence>
-      <element name="userDTO" type="tns1:UserDTO"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="selectUniqUserResponse">
-    <complexType>
-     <sequence>
-      <element name="selectUniqUserReturn" type="tns1:UserDTO"/>
+      <element name="selectUniqFolioReturn" type="tns1:FolioDTO"/>
      </sequence>
     </complexType>
    </element>
@@ -60,6 +36,30 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
     <complexType>
      <sequence>
       <element name="saveUserReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="logIn">
+    <complexType>
+     <sequence>
+      <element name="userDTO" type="tns1:UserDTO"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="logInResponse">
+    <complexType>
+     <sequence>
+      <element name="logInReturn" type="tns1:UserDTO"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="selectAllUsers">
+    <complexType/>
+   </element>
+   <element name="selectAllUsersResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="selectAllUsersReturn" type="tns1:UserDTO"/>
      </sequence>
     </complexType>
    </element>
@@ -91,6 +91,20 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
+   <element name="deleteFolio">
+    <complexType>
+     <sequence>
+      <element name="folioDTO" type="tns1:FolioDTO"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteFolioResponse">
+    <complexType>
+     <sequence>
+      <element name="deleteFolioReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
    <element name="saveFolio">
     <complexType>
      <sequence>
@@ -105,17 +119,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
-   <element name="logIn">
+   <element name="selectUserFolios">
     <complexType>
      <sequence>
-      <element name="userDTO" type="tns1:UserDTO"/>
+      <element name="userId" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
-   <element name="logInResponse">
+   <element name="selectUserFoliosResponse">
     <complexType>
      <sequence>
-      <element name="logInReturn" type="tns1:UserDTO"/>
+      <element maxOccurs="unbounded" name="selectUserFoliosReturn" type="tns1:FolioDTO"/>
      </sequence>
     </complexType>
    </element>
@@ -126,6 +140,20 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
     <complexType>
      <sequence>
       <element maxOccurs="unbounded" name="selectRolesReturn" type="tns1:RolDTO"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="selectUniqUser">
+    <complexType>
+     <sequence>
+      <element name="userDTO" type="tns1:UserDTO"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="selectUniqUserResponse">
+    <complexType>
+     <sequence>
+      <element name="selectUniqUserReturn" type="tns1:UserDTO"/>
      </sequence>
     </complexType>
    </element>
@@ -143,24 +171,10 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
-   <element name="deleteFolio">
-    <complexType>
-     <sequence>
-      <element name="folioDTO" type="tns1:FolioDTO"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="deleteFolioResponse">
-    <complexType>
-     <sequence>
-      <element name="deleteFolioReturn" type="xsd:int"/>
-     </sequence>
-    </complexType>
-   </element>
   </schema>
   <schema elementFormDefault="qualified" targetNamespace="http://util.ws.tt.nad.com" xmlns="http://www.w3.org/2001/XMLSchema">
-   <import namespace="http://user.dto.ws.tt.nad.com"/>
    <import namespace="http://user.impl.dao.ws.tt.nad.com"/>
+   <import namespace="http://user.dto.ws.tt.nad.com"/>
    <complexType name="DataType">
     <sequence>
      <element name="column" nillable="true" type="xsd:string"/>
@@ -209,9 +223,9 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
   </schema>
  </wsdl:types>
 
-   <wsdl:message name="saveUserResponse">
+   <wsdl:message name="selectAllUsersRequest">
 
-      <wsdl:part element="impl:saveUserResponse" name="parameters">
+      <wsdl:part element="impl:selectAllUsers" name="parameters">
 
       </wsdl:part>
 
@@ -225,6 +239,14 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
+   <wsdl:message name="selectUserFoliosResponse">
+
+      <wsdl:part element="impl:selectUserFoliosResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
    <wsdl:message name="deleteUserResponse">
 
       <wsdl:part element="impl:deleteUserResponse" name="parameters">
@@ -233,17 +255,9 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="deleteUserRequest">
+   <wsdl:message name="selectUniqFolioResponse">
 
-      <wsdl:part element="impl:deleteUser" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="selectUniqUserResponse">
-
-      <wsdl:part element="impl:selectUniqUserResponse" name="parameters">
+      <wsdl:part element="impl:selectUniqFolioResponse" name="parameters">
 
       </wsdl:part>
 
@@ -257,49 +271,9 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="updateFolioResponse">
+   <wsdl:message name="saveUserResponse">
 
-      <wsdl:part element="impl:updateFolioResponse" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="saveFolioRequest">
-
-      <wsdl:part element="impl:saveFolio" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="selectUserFoliosResponse">
-
-      <wsdl:part element="impl:selectUserFoliosResponse" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="deleteFolioRequest">
-
-      <wsdl:part element="impl:deleteFolio" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="updateFolioRequest">
-
-      <wsdl:part element="impl:updateFolio" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="selectRolesResponse">
-
-      <wsdl:part element="impl:selectRolesResponse" name="parameters">
+      <wsdl:part element="impl:saveUserResponse" name="parameters">
 
       </wsdl:part>
 
@@ -313,9 +287,33 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="selectRolesRequest">
+   <wsdl:message name="logInResponse">
 
-      <wsdl:part element="impl:selectRoles" name="parameters">
+      <wsdl:part element="impl:logInResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteUserRequest">
+
+      <wsdl:part element="impl:deleteUser" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteFolioRequest">
+
+      <wsdl:part element="impl:deleteFolio" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateFolioResponse">
+
+      <wsdl:part element="impl:updateFolioResponse" name="parameters">
 
       </wsdl:part>
 
@@ -329,14 +327,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="selectUserFoliosRequest">
-
-      <wsdl:part element="impl:selectUserFolios" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
    <wsdl:message name="deleteFolioResponse">
 
       <wsdl:part element="impl:deleteFolioResponse" name="parameters">
@@ -345,17 +335,9 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="selectAllUsersRequest">
+   <wsdl:message name="updateFolioRequest">
 
-      <wsdl:part element="impl:selectAllUsers" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="logInResponse">
-
-      <wsdl:part element="impl:logInResponse" name="parameters">
+      <wsdl:part element="impl:updateFolio" name="parameters">
 
       </wsdl:part>
 
@@ -369,9 +351,33 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="selectAllUsersResponse">
+   <wsdl:message name="selectRolesRequest">
 
-      <wsdl:part element="impl:selectAllUsersResponse" name="parameters">
+      <wsdl:part element="impl:selectRoles" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="selectRolesResponse">
+
+      <wsdl:part element="impl:selectRolesResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="saveFolioRequest">
+
+      <wsdl:part element="impl:saveFolio" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="selectUniqFolioRequest">
+
+      <wsdl:part element="impl:selectUniqFolio" name="parameters">
 
       </wsdl:part>
 
@@ -385,39 +391,39 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
+   <wsdl:message name="selectUniqUserResponse">
+
+      <wsdl:part element="impl:selectUniqUserResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="selectAllUsersResponse">
+
+      <wsdl:part element="impl:selectAllUsersResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="selectUserFoliosRequest">
+
+      <wsdl:part element="impl:selectUserFolios" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
    <wsdl:portType name="UserDAOImpl">
 
-      <wsdl:operation name="selectUserFolios">
+      <wsdl:operation name="selectUniqFolio">
 
-         <wsdl:input message="impl:selectUserFoliosRequest" name="selectUserFoliosRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:selectUserFoliosResponse" name="selectUserFoliosResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="selectAllUsers">
-
-         <wsdl:input message="impl:selectAllUsersRequest" name="selectAllUsersRequest">
+         <wsdl:input message="impl:selectUniqFolioRequest" name="selectUniqFolioRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:selectAllUsersResponse" name="selectAllUsersResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="selectUniqUser">
-
-         <wsdl:input message="impl:selectUniqUserRequest" name="selectUniqUserRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:selectUniqUserResponse" name="selectUniqUserResponse">
+         <wsdl:output message="impl:selectUniqFolioResponse" name="selectUniqFolioResponse">
 
        </wsdl:output>
 
@@ -430,6 +436,30 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
        </wsdl:input>
 
          <wsdl:output message="impl:saveUserResponse" name="saveUserResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="logIn">
+
+         <wsdl:input message="impl:logInRequest" name="logInRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:logInResponse" name="logInResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="selectAllUsers">
+
+         <wsdl:input message="impl:selectAllUsersRequest" name="selectAllUsersRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:selectAllUsersResponse" name="selectAllUsersResponse">
 
        </wsdl:output>
 
@@ -459,6 +489,18 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
+      <wsdl:operation name="deleteFolio">
+
+         <wsdl:input message="impl:deleteFolioRequest" name="deleteFolioRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deleteFolioResponse" name="deleteFolioResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
       <wsdl:operation name="saveFolio">
 
          <wsdl:input message="impl:saveFolioRequest" name="saveFolioRequest">
@@ -471,13 +513,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="logIn">
+      <wsdl:operation name="selectUserFolios">
 
-         <wsdl:input message="impl:logInRequest" name="logInRequest">
+         <wsdl:input message="impl:selectUserFoliosRequest" name="selectUserFoliosRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:logInResponse" name="logInResponse">
+         <wsdl:output message="impl:selectUserFoliosResponse" name="selectUserFoliosResponse">
 
        </wsdl:output>
 
@@ -495,6 +537,18 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
+      <wsdl:operation name="selectUniqUser">
+
+         <wsdl:input message="impl:selectUniqUserRequest" name="selectUniqUserRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:selectUniqUserResponse" name="selectUniqUserResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
       <wsdl:operation name="updateFolio">
 
          <wsdl:input message="impl:updateFolioRequest" name="updateFolioRequest">
@@ -507,71 +561,23 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="deleteFolio">
-
-         <wsdl:input message="impl:deleteFolioRequest" name="deleteFolioRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:deleteFolioResponse" name="deleteFolioResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
    </wsdl:portType>
 
    <wsdl:binding name="UserDAOImplSoapBinding" type="impl:UserDAOImpl">
 
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 
-      <wsdl:operation name="selectUserFolios">
+      <wsdl:operation name="selectUniqFolio">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="selectUserFoliosRequest">
+         <wsdl:input name="selectUniqFolioRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="selectUserFoliosResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="selectAllUsers">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="selectAllUsersRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="selectAllUsersResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="selectUniqUser">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="selectUniqUserRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="selectUniqUserResponse">
+         <wsdl:output name="selectUniqFolioResponse">
 
             <wsdlsoap:body use="literal"/>
 
@@ -590,6 +596,42 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          </wsdl:input>
 
          <wsdl:output name="saveUserResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="logIn">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="logInRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="logInResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="selectAllUsers">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="selectAllUsersRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="selectAllUsersResponse">
 
             <wsdlsoap:body use="literal"/>
 
@@ -633,6 +675,24 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
+      <wsdl:operation name="deleteFolio">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteFolioRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteFolioResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
       <wsdl:operation name="saveFolio">
 
          <wsdlsoap:operation soapAction=""/>
@@ -651,17 +711,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="logIn">
+      <wsdl:operation name="selectUserFolios">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="logInRequest">
+         <wsdl:input name="selectUserFoliosRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="logInResponse">
+         <wsdl:output name="selectUserFoliosResponse">
 
             <wsdlsoap:body use="literal"/>
 
@@ -687,6 +747,24 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
+      <wsdl:operation name="selectUniqUser">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="selectUniqUserRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="selectUniqUserResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
       <wsdl:operation name="updateFolio">
 
          <wsdlsoap:operation soapAction=""/>
@@ -705,31 +783,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="deleteFolio">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="deleteFolioRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="deleteFolioResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
    </wsdl:binding>
 
    <wsdl:service name="UserDAOImplService">
 
       <wsdl:port binding="impl:UserDAOImplSoapBinding" name="UserDAOImpl">
 
-         <wsdlsoap:address location="http://localhost:11107/WSTT/services/UserDAOImpl"/>
+         <wsdlsoap:address location="http://localhost:81/WSTT/services/UserDAOImpl"/>
 
       </wsdl:port>
 

@@ -1,6 +1,7 @@
 package com.nad.tt.activity.login;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.text.Editable;
@@ -12,13 +13,16 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.nad.tt.activity.folio.FoliosActivity;
 import com.nad.tt.comun.dto.UserDTO;
 import com.nad.tt.comun.enumeration.ElementDTO;
 import com.nad.tt.dao.user.UserDAO;
 import com.nad.tt.util.Constants;
 import com.nad.tt.util.Util;
 
-public class LoginActivity extends Activity {
+import java.io.Serializable;
+
+public class LoginActivity extends Activity implements Serializable {
 
     private     EditText txtUser;
     private EditText txtPassword;
@@ -101,7 +105,14 @@ public class LoginActivity extends Activity {
             userDTO.password = txtPassword.getText().toString();
             userDTO = userDAO.login(userDTO);
             if (Constants.ERROR_CODE_OK.equals(userDTO.codError)){
-                Util.startActivityByClass(StartActivity.class, this, "");
+
+                Log.d("SOLO ID", String.valueOf(userDTO.idUser));
+                Intent h= new Intent(this, StartActivity.class);
+                h.putExtra("UserDTO", String.valueOf(userDTO.idUser));
+                startActivity(h);
+
+               // Util.startActivityByClass(StartActivity.class, this, "");
+
             } else {
                 Util.showToast(userDTO.msgError, this);
             }

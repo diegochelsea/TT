@@ -20,52 +20,8 @@
   </ns1:requestFlow>
  </ns1:globalConfiguration>
  <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
- <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
  <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
- <ns1:service name="UserDAOImpl" provider="java:RPC" style="wrapped" use="literal">
-  <ns3:operation name="selectUserFolios" qname="ns1:selectUserFolios" returnQName="ns1:selectUserFoliosReturn" returnType="ns2:FolioDTO" soapAction="" xmlns:ns1="http://user.impl.dao.ws.tt.nad.com" xmlns:ns2="http://user.dto.ws.tt.nad.com" xmlns:ns3="http://xml.apache.org/axis/wsdd/">
-   <ns3:parameter qname="ns1:userId" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-  </ns3:operation>
-  <ns1:operation name="selectAllUsers" qname="ns3:selectAllUsers" returnQName="ns3:selectAllUsersReturn" returnType="ns4:UserDTO" soapAction="" xmlns:ns3="http://user.impl.dao.ws.tt.nad.com" xmlns:ns4="http://user.dto.ws.tt.nad.com"/>
-  <ns1:operation name="selectUniqUser" qname="ns5:selectUniqUser" returnQName="ns5:selectUniqUserReturn" returnType="ns6:UserDTO" soapAction="" xmlns:ns5="http://user.impl.dao.ws.tt.nad.com" xmlns:ns6="http://user.dto.ws.tt.nad.com">
-   <ns1:parameter qname="ns5:userDTO" type="ns6:UserDTO"/>
-  </ns1:operation>
-  <ns1:operation name="saveUser" qname="ns7:saveUser" returnQName="ns7:saveUserReturn" returnType="xsd:int" soapAction="" xmlns:ns7="http://user.impl.dao.ws.tt.nad.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns7:userDTO" type="ns8:UserDTO" xmlns:ns8="http://user.dto.ws.tt.nad.com"/>
-  </ns1:operation>
-  <ns1:operation name="updateUser" qname="ns9:updateUser" returnQName="ns9:updateUserReturn" returnType="xsd:int" soapAction="" xmlns:ns9="http://user.impl.dao.ws.tt.nad.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns9:userDTO" type="ns10:UserDTO" xmlns:ns10="http://user.dto.ws.tt.nad.com"/>
-  </ns1:operation>
-  <ns1:operation name="deleteUser" qname="ns11:deleteUser" returnQName="ns11:deleteUserReturn" returnType="xsd:int" soapAction="" xmlns:ns11="http://user.impl.dao.ws.tt.nad.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns11:userDTO" type="ns12:UserDTO" xmlns:ns12="http://user.dto.ws.tt.nad.com"/>
-  </ns1:operation>
-  <ns1:operation name="saveFolio" qname="ns13:saveFolio" returnQName="ns13:saveFolioReturn" returnType="xsd:int" soapAction="" xmlns:ns13="http://user.impl.dao.ws.tt.nad.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns13:folioDTO" type="ns14:FolioDTO" xmlns:ns14="http://user.dto.ws.tt.nad.com"/>
-  </ns1:operation>
-  <ns1:operation name="logIn" qname="ns15:logIn" returnQName="ns15:logInReturn" returnType="ns16:UserDTO" soapAction="" xmlns:ns15="http://user.impl.dao.ws.tt.nad.com" xmlns:ns16="http://user.dto.ws.tt.nad.com">
-   <ns1:parameter qname="ns15:userDTO" type="ns16:UserDTO"/>
-  </ns1:operation>
-  <ns1:operation name="selectRoles" qname="ns17:selectRoles" returnQName="ns17:selectRolesReturn" returnType="ns18:RolDTO" soapAction="" xmlns:ns17="http://user.impl.dao.ws.tt.nad.com" xmlns:ns18="http://user.dto.ws.tt.nad.com"/>
-  <ns1:operation name="updateFolio" qname="ns19:updateFolio" returnQName="ns19:updateFolioReturn" returnType="xsd:int" soapAction="" xmlns:ns19="http://user.impl.dao.ws.tt.nad.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns19:folioDTO" type="ns20:FolioDTO" xmlns:ns20="http://user.dto.ws.tt.nad.com"/>
-  </ns1:operation>
-  <ns1:operation name="deleteFolio" qname="ns21:deleteFolio" returnQName="ns21:deleteFolioReturn" returnType="xsd:int" soapAction="" xmlns:ns21="http://user.impl.dao.ws.tt.nad.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns21:folioDTO" type="ns22:FolioDTO" xmlns:ns22="http://user.dto.ws.tt.nad.com"/>
-  </ns1:operation>
-  <ns1:parameter name="allowedMethods" value="selectUniqUser saveFolio selectUserFolios updateFolio saveUser deleteFolio deleteUser selectAllUsers logIn selectRoles updateUser"/>
-  <ns1:parameter name="typeMappingVersion" value="1.2"/>
-  <ns1:parameter name="wsdlPortType" value="UserDAOImpl"/>
-  <ns1:parameter name="className" value="com.nad.tt.ws.dao.impl.user.UserDAOImpl"/>
-  <ns1:parameter name="wsdlServicePort" value="UserDAOImpl"/>
-  <ns1:parameter name="schemaQualified" value="http://user.impl.dao.ws.tt.nad.com,http://user.dto.ws.tt.nad.com,http://util.ws.tt.nad.com"/>
-  <ns1:parameter name="wsdlTargetNamespace" value="http://user.impl.dao.ws.tt.nad.com"/>
-  <ns1:parameter name="wsdlServiceElement" value="UserDAOImplService"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns23:UserDTO" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.nad.tt.ws.dto.user.UserDTO" xmlns:ns23="http://user.dto.ws.tt.nad.com"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns24:RolDTO" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.nad.tt.ws.dto.user.RolDTO" xmlns:ns24="http://user.dto.ws.tt.nad.com"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns25:FolioDTO" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.nad.tt.ws.dto.user.FolioDTO" xmlns:ns25="http://user.dto.ws.tt.nad.com"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns26:DataType" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.nad.tt.ws.util.DataType" xmlns:ns26="http://util.ws.tt.nad.com"/>
-  <ns1:arrayMapping innerType="xsd:string" languageSpecificType="java:java.lang.String[]" qname="ns27:ArrayOf_xsd_string" xmlns:ns27="http://user.impl.dao.ws.tt.nad.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
- </ns1:service>
+ <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
  <ns1:service name="AdminService" provider="java:MSG">
   <ns1:parameter name="allowedMethods" value="AdminService"/>
   <ns1:parameter name="enableRemoteAdmin" value="false"/>
@@ -75,6 +31,53 @@
  <ns1:service name="Version" provider="java:RPC">
   <ns1:parameter name="allowedMethods" value="getVersion"/>
   <ns1:parameter name="className" value="org.apache.axis.Version"/>
+ </ns1:service>
+ <ns1:service name="UserDAOImpl" provider="java:RPC" style="wrapped" use="literal">
+  <ns3:operation name="selectUniqFolio" qname="ns1:selectUniqFolio" returnQName="ns1:selectUniqFolioReturn" returnType="ns2:FolioDTO" soapAction="" xmlns:ns1="http://user.impl.dao.ws.tt.nad.com" xmlns:ns2="http://user.dto.ws.tt.nad.com" xmlns:ns3="http://xml.apache.org/axis/wsdd/">
+   <ns3:parameter qname="ns1:folioDTO" type="ns2:FolioDTO"/>
+  </ns3:operation>
+  <ns1:operation name="saveUser" qname="ns3:saveUser" returnQName="ns3:saveUserReturn" returnType="xsd:int" soapAction="" xmlns:ns3="http://user.impl.dao.ws.tt.nad.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns3:userDTO" type="ns4:UserDTO" xmlns:ns4="http://user.dto.ws.tt.nad.com"/>
+  </ns1:operation>
+  <ns1:operation name="logIn" qname="ns5:logIn" returnQName="ns5:logInReturn" returnType="ns6:UserDTO" soapAction="" xmlns:ns5="http://user.impl.dao.ws.tt.nad.com" xmlns:ns6="http://user.dto.ws.tt.nad.com">
+   <ns1:parameter qname="ns5:userDTO" type="ns6:UserDTO"/>
+  </ns1:operation>
+  <ns1:operation name="selectAllUsers" qname="ns7:selectAllUsers" returnQName="ns7:selectAllUsersReturn" returnType="ns8:UserDTO" soapAction="" xmlns:ns7="http://user.impl.dao.ws.tt.nad.com" xmlns:ns8="http://user.dto.ws.tt.nad.com"/>
+  <ns1:operation name="updateUser" qname="ns9:updateUser" returnQName="ns9:updateUserReturn" returnType="xsd:int" soapAction="" xmlns:ns9="http://user.impl.dao.ws.tt.nad.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns9:userDTO" type="ns10:UserDTO" xmlns:ns10="http://user.dto.ws.tt.nad.com"/>
+  </ns1:operation>
+  <ns1:operation name="deleteUser" qname="ns11:deleteUser" returnQName="ns11:deleteUserReturn" returnType="xsd:int" soapAction="" xmlns:ns11="http://user.impl.dao.ws.tt.nad.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns11:userDTO" type="ns12:UserDTO" xmlns:ns12="http://user.dto.ws.tt.nad.com"/>
+  </ns1:operation>
+  <ns1:operation name="deleteFolio" qname="ns13:deleteFolio" returnQName="ns13:deleteFolioReturn" returnType="xsd:int" soapAction="" xmlns:ns13="http://user.impl.dao.ws.tt.nad.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns13:folioDTO" type="ns14:FolioDTO" xmlns:ns14="http://user.dto.ws.tt.nad.com"/>
+  </ns1:operation>
+  <ns1:operation name="saveFolio" qname="ns15:saveFolio" returnQName="ns15:saveFolioReturn" returnType="xsd:int" soapAction="" xmlns:ns15="http://user.impl.dao.ws.tt.nad.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns15:folioDTO" type="ns16:FolioDTO" xmlns:ns16="http://user.dto.ws.tt.nad.com"/>
+  </ns1:operation>
+  <ns1:operation name="selectUserFolios" qname="ns17:selectUserFolios" returnQName="ns17:selectUserFoliosReturn" returnType="ns18:FolioDTO" soapAction="" xmlns:ns17="http://user.impl.dao.ws.tt.nad.com" xmlns:ns18="http://user.dto.ws.tt.nad.com">
+   <ns1:parameter qname="ns17:userId" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="selectRoles" qname="ns19:selectRoles" returnQName="ns19:selectRolesReturn" returnType="ns20:RolDTO" soapAction="" xmlns:ns19="http://user.impl.dao.ws.tt.nad.com" xmlns:ns20="http://user.dto.ws.tt.nad.com"/>
+  <ns1:operation name="selectUniqUser" qname="ns21:selectUniqUser" returnQName="ns21:selectUniqUserReturn" returnType="ns22:UserDTO" soapAction="" xmlns:ns21="http://user.impl.dao.ws.tt.nad.com" xmlns:ns22="http://user.dto.ws.tt.nad.com">
+   <ns1:parameter qname="ns21:userDTO" type="ns22:UserDTO"/>
+  </ns1:operation>
+  <ns1:operation name="updateFolio" qname="ns23:updateFolio" returnQName="ns23:updateFolioReturn" returnType="xsd:int" soapAction="" xmlns:ns23="http://user.impl.dao.ws.tt.nad.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns23:folioDTO" type="ns24:FolioDTO" xmlns:ns24="http://user.dto.ws.tt.nad.com"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="deleteFolio selectAllUsers deleteUser updateUser saveFolio logIn selectUserFolios selectUniqFolio saveUser selectRoles selectUniqUser updateFolio"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="UserDAOImpl"/>
+  <ns1:parameter name="className" value="com.nad.tt.ws.dao.impl.user.UserDAOImpl"/>
+  <ns1:parameter name="wsdlServicePort" value="UserDAOImpl"/>
+  <ns1:parameter name="schemaQualified" value="http://user.dto.ws.tt.nad.com,http://user.impl.dao.ws.tt.nad.com,http://util.ws.tt.nad.com"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://user.impl.dao.ws.tt.nad.com"/>
+  <ns1:parameter name="wsdlServiceElement" value="UserDAOImplService"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns25:DataType" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.nad.tt.ws.util.DataType" xmlns:ns25="http://util.ws.tt.nad.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns26:FolioDTO" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.nad.tt.ws.dto.user.FolioDTO" xmlns:ns26="http://user.dto.ws.tt.nad.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns27:UserDTO" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.nad.tt.ws.dto.user.UserDTO" xmlns:ns27="http://user.dto.ws.tt.nad.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns28:RolDTO" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.nad.tt.ws.dto.user.RolDTO" xmlns:ns28="http://user.dto.ws.tt.nad.com"/>
+  <ns1:arrayMapping innerType="xsd:string" languageSpecificType="java:java.lang.String[]" qname="ns29:ArrayOf_xsd_string" xmlns:ns29="http://user.impl.dao.ws.tt.nad.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
  </ns1:service>
  <ns1:transport name="http">
   <ns1:requestFlow>

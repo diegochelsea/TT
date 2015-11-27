@@ -45,7 +45,7 @@ public final class Constants {
     // Costants to get connection to web service
 //    public static final String URL = "http://10.42.1.152:11107/WSTT/services/UserDAOImpl";
 //    public static final String URL = "http://192.168.1.1:11107/WSTT/services/UserDAOImpl";
-    public static final String URL = "http://192.168.0.4:11107/WSTT/services/UserDAOImpl";
+    public static final String URL = "http://172.16.97.55:81/WSTT/services/UserDAOImpl";
     public static final String NAME_SAPACE = "http://user.impl.dao.ws.tt.nad.com";
 
     // Constants to save methods name from WS
@@ -58,6 +58,7 @@ public final class Constants {
     public static final String METHOD_LOGIN = "logIn";
     public static final String METHOD_SELECT_ALL_USERS = "selectAllUsers";
     public static final String METHOD_SELECT_UNIQ_USER = "selectUniqUser";
+    public static final String METHOD_SELECT_UNIQ_FOLIO = "selectUniqFolio";
     public static final String METHOD_SELECT_USER_FOLIOS = "selectUserFolios";
     public static final String METHOD_SELECT_ROLES = "selectRoles";
 
@@ -80,6 +81,7 @@ public final class Constants {
     public static final String CLASS_STATUS_DTO = "StatusDTO";
     public static final String CLASS_FOLIO_DTO = "FolioDTO";
     public static final String CLASS_FOLLOWUP_DTO = "FollowupDTO";
+    public static final String ID_USUARIO = "init";
     
     //Constants to status
     public static final String NA = "na";

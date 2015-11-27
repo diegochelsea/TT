@@ -42,6 +42,13 @@ public interface UserDAO {
 	UserDTO selectUniqUser(UserDTO userDTO);
 	
 	/**
+	 * Method to select uniq folio
+	 * @param userDTO object with information of some user
+	 * @return user found
+	 */
+	FolioDTO selectUniqFolio(FolioDTO folioDTO);
+	
+	/**
 	 * Method to check login
 	 * @param userDTO object with information of some user
 	 * @return user found for login action

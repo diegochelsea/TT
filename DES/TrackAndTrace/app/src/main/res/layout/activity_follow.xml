@@ -126,7 +126,7 @@
                 android:id="@+id/btn_pick_up"
                 style="@style/btnUnactive"
                 android:background="@drawable/buton_unactive"
-                android:onClick="setPickUp"
+                android:onClick="setStatus"
                 android:text="" />
         </LinearLayout>
         <LinearLayout style="@style/linear_layout_follow_vertical_">
@@ -134,7 +134,7 @@
                 android:id="@+id/btn_checkin"
                 style="@style/btnUnactive"
                 android:background="@drawable/buton_unactive"
-                android:onClick="setCheckin"
+                android:onClick="setStatus"
                 android:text="" />
         </LinearLayout>
         <LinearLayout style="@style/linear_layout_follow_vertical_">
@@ -142,7 +142,7 @@
                 android:id="@+id/btn_on_fly"
                 style="@style/btnUnactive"
                 android:background="@drawable/buton_unactive"
-                android:onClick="setOnFly"
+                android:onClick="setStatus"
                 android:text="" />
         </LinearLayout>
         <LinearLayout style="@style/linear_layout_follow_vertical_">
@@ -150,7 +150,7 @@
                 android:id="@+id/btn_custom"
                 style="@style/btnUnactive"
                 android:background="@drawable/buton_unactive"
-                android:onClick="setCustomC"
+                android:onClick="setStatus"
                 android:text="" />
         </LinearLayout>
         <LinearLayout style="@style/linear_layout_follow_vertical_">
@@ -158,7 +158,7 @@
                 android:id="@+id/btn_deliveres"
                 style="@style/btnUnactive"
                 android:background="@drawable/buton_unactive"
-                android:onClick="setDelivered"
+                android:onClick="setStatus"
                 android:text="" />
         </LinearLayout>
     </LinearLayout>

@@ -26,7 +26,7 @@ public final class Connection {
 			// .lookup("jdbcTTWS");
 			connection = DriverManager
 					.getConnection("jdbc:mysql://localhost/ttws?"
-							+ "user=admin&password=admin");
+							+ "user=root&password=admin");
 
 			// connection = (java.sql.Connection) ds.getConnection();
 			System.out.println("getConnection getConn");

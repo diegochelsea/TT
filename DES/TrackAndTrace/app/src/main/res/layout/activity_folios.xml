@@ -5,6 +5,13 @@
     style="@style/linear_layout_content_vertical"
     tools:context="com.nad.tt.activity.folio.FoliosActivity">
 
+    <TextView
+        android:id="@+id/lbl_id_status_hidde"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text=""/>
+
     <LinearLayout style="@style/linear_layout_center_horizontal">
         <TextView
             android:id="@+id/lbl_sorce"
@@ -68,7 +75,7 @@
         </LinearLayout>
         <LinearLayout style="@style/linear_layout_follow_vertical_">
             <Button
-                android:id="@+id/btnNext"
+                android:id="@+id/btn_next"
                 style="@style/btnsStatus"
                 android:onClick="goToSetFolio"
                 android:text="@string/lbl_next" />

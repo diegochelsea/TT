@@ -44,6 +44,37 @@ public final class WsConection {
         return soapObject;
     }
 
+    public static Vector<SoapObject> getSimpleObjectParam(String method, String param) {
+
+        Vector<SoapObject> soapObject = null;
+        try {
+            Log.d("WEB-SERVICE", "1");
+            SoapObject request = new SoapObject(Constants.NAME_SAPACE, method);
+
+            Log.d("WEB-SERVICE", "1.2");
+            PropertyInfo propertyInfo = new PropertyInfo();
+            propertyInfo.setName(Constants.ID_USUARIO);
+            propertyInfo.setValue(param);
+            propertyInfo.setType(param.getClass());
+            request.addProperty(propertyInfo);
+
+            Log.d("WEB-SERVICE", "2");
+            SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+            Log.d("WEB-SERVICE", "3");
+            envelope.setOutputSoapObject(request);
+            Log.d("WEB-SERVICE", "4");
+            HttpTransportSE androidHttpTransport = new HttpTransportSE(Constants.URL);
+            Log.d("WEB-SERVICE", "5");
+            androidHttpTransport.call(new StringBuilder(Constants.NAME_SAPACE).append("/").append(method).toString(), envelope);
+            soapObject = (Vector<SoapObject>) envelope.getResponse();
+            Log.d("WEB-SERVICE, getObject ", "OK");
+        } catch (Exception e) {
+            Log.d("WEB-SERVICE, Expetion: ", e.toString());
+            Log.d("WEB-SERVICE, Expetion: ", e.getMessage());
+        }
+        return soapObject;
+    }
+
     public static SoapObject getSimpleObjectWithPatam(String method, UserDTO userDTO) {
 
         SoapObject soapObject = null;
@@ -63,6 +94,39 @@ public final class WsConection {
             envelope.setOutputSoapObject(request);
             Log.d("WEB-SERVICE", "5");
             envelope.addMapping(Constants.NAME_SAPACE, Constants.CLASS_USER_DTO, userDTO.getClass());
+            Log.d("WEB-SERVICE", "6");
+            HttpTransportSE androidHttpTransport = new HttpTransportSE(Constants.URL);
+            Log.d("WEB-SERVICE", "7 method: " + new StringBuilder(Constants.NAME_SAPACE).append("/").append(method).toString());
+            androidHttpTransport.call(new StringBuilder(Constants.NAME_SAPACE).append("/").append(method).toString(), envelope);
+            Log.d("WEB-SERVICE", "8");
+            soapObject = (SoapObject) envelope.getResponse();
+            Log.d("WEB-SERVICE, getObject ", "OK");
+        } catch (Exception e) {
+            Log.d("WEB-SERVICE, Expetion: ", e.toString());
+            Log.d("WEB-SERVICE, Expetion: ", e.getMessage());
+        }
+        return soapObject;
+    }
+
+    public static SoapObject getSimpleObjectWithPatam(String method, FolioDTO folioDTO) {
+
+        SoapObject soapObject = null;
+        try {
+            Log.d("WEB-SERVICE", "1, params: " + folioDTO.beginning + ", " + folioDTO.idFolio);
+            SoapObject request = new SoapObject(Constants.NAME_SAPACE, method);
+            Log.d("WEB-SERVICE", "2");
+
+            PropertyInfo propertyInfo = new PropertyInfo();
+            propertyInfo.setName(Constants.FOLIO_DTO);
+            propertyInfo.setValue(folioDTO);
+            propertyInfo.setType(folioDTO.getClass());
+            request.addProperty(propertyInfo);
+            Log.d("WEB-SERVICE", "3 add property");
+            SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+            Log.d("WEB-SERVICE", "4");
+            envelope.setOutputSoapObject(request);
+            Log.d("WEB-SERVICE", "5");
+            envelope.addMapping(Constants.NAME_SAPACE, Constants.CLASS_USER_DTO, folioDTO.getClass());
             Log.d("WEB-SERVICE", "6");
             HttpTransportSE androidHttpTransport = new HttpTransportSE(Constants.URL);
             Log.d("WEB-SERVICE", "7 method: " + new StringBuilder(Constants.NAME_SAPACE).append("/").append(method).toString());

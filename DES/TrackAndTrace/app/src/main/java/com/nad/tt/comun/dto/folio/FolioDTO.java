@@ -12,6 +12,8 @@ public class FolioDTO implements Serializable {
     public String destination = "";
     public String status = "";
     public String[] users;
+    public String codError;
+    public String msgError;
 
     public FolioDTO() {
         // TODO Auto-generated constructor stub
@@ -24,6 +26,22 @@ public class FolioDTO implements Serializable {
         this.beginning = beginning;
         this.destination = destination;
         this.status = status;
+    }
+
+    public String getCodError() {
+        return codError;
+    }
+
+    public void setCodError(String codError) {
+        this.codError = codError;
+    }
+
+    public String getMsgError() {
+        return msgError;
+    }
+
+    public void setMsgError(String msgError) {
+        this.msgError = msgError;
     }
 
     public int getIdFolio() {

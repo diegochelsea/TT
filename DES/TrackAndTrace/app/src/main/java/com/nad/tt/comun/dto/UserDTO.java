@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * Created by Diego on 23/10/2015.
  */
-public class UserDTO implements KvmSerializable {
+public class UserDTO implements KvmSerializable,Serializable {
 
     public String codError = "";
     public String msgError = "";

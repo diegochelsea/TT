@@ -54,6 +54,15 @@ public class UserDAOImpl implements UserDAO {
 			.append(TTWSConstants.COLUMN_USER_ROL).append(TTWSConstants.FROM)
 			.append(USER_TABLE_NAME).append(TTWSConstants.WHERE).append(TTWSConstants.COLUMN_USER_ID_USER)
 			.append(TTWSConstants.EQUAL).append("?");
+	
+	/** Constant to save query UNIQ_FOLIO */
+	private static final StringBuilder UNIQ_FOLIO = new StringBuilder(TTWSConstants.SELECT).append(TTWSConstants.ONE_WHITE_SPACE)
+			.append(TTWSConstants.COLUMN_FOLIO_ID_FOLIO).append(TTWSConstants.COMMA)
+			.append(TTWSConstants.COLUMN_FOLIO_BEGINNIG).append(TTWSConstants.COMMA)
+			.append(TTWSConstants.COLUMN_FOLIO_DESTINATION).append(TTWSConstants.COMMA)
+			.append(TTWSConstants.COLUMN_FOLIO_CURRENT_STATUS).append(TTWSConstants.FROM)
+			.append(FOLIO_TABLE_NAME).append(TTWSConstants.WHERE).append(TTWSConstants.COLUMN_FOLIO_ID_FOLIO)
+			.append(TTWSConstants.EQUAL).append("?");
 
 	/** Constant to save query ALL_ROLES */
 	private static final StringBuilder ALL_ROLES = new StringBuilder(TTWSConstants.SELECT)
@@ -212,6 +221,60 @@ public class UserDAOImpl implements UserDAO {
 		System.out.println("end selectUniqUser");
 		return userDTO;
 	}
+	
+	
+	@Override
+	public FolioDTO selectUniqFolio(FolioDTO folioDTO) {
+		System.out.println("int selectUniqFolio");
+		System.out.println("selectUniqFolio: params, " 
+				+ folioDTO.getIdFolio() + ", " 
+				+ folioDTO.getBeginning()
+				+ ", " + folioDTO.getDestination()
+				+ ", " + folioDTO.getStatus());
+		BeanResponseDTO<java.sql.Connection> resultConn = Connection
+				.getConnection();
+
+		PreparedStatement stmt = null;
+		ResultSet resultSet = null;
+		System.out.println("selectUniqFolio getConn: " + resultConn.getCodError());
+		try {
+			if (TTWSConstants.ERROR_CODE_OK.equals(resultConn.getCodError())) {
+
+				stmt = (PreparedStatement) resultConn.getResult()
+						.prepareStatement(UNIQ_FOLIO.toString());
+				stmt.setInt(1, folioDTO.getIdFolio());
+				System.out.println("selectUniqFolio query: " + UNIQ_FOLIO.toString());
+				resultSet = stmt.executeQuery();
+				if (!resultConn.getResult().isClosed() && resultSet.next()) {
+					folioDTO.setIdFolio(Integer.parseInt(resultSet.getString(TTWSConstants.COLUMN_FOLIO_ID_FOLIO)));
+					folioDTO.setBeginning(resultSet.getString(TTWSConstants.COLUMN_FOLIO_BEGINNIG));
+					folioDTO.setDestination(resultSet.getString(TTWSConstants.COLUMN_FOLIO_DESTINATION));
+					folioDTO.setStatus(resultSet.getString(TTWSConstants.COLUMN_FOLIO_CURRENT_STATUS));
+					resultConn.setCodError(TTWSConstants.ERROR_CODE_OK);
+				} else {
+					resultConn.setCodError(TTWSConstants.ERROR_CODE_NOK);
+					resultConn.setMsgError("Folio not found.");
+				}
+			}
+			folioDTO.setCodError(resultConn.getCodError());
+			folioDTO.setMsgError(resultConn.getMsgError());
+		} catch (SQLException e) {
+			folioDTO.setCodError(TTWSConstants.ERROR_CODE_NOK);
+			folioDTO.setMsgError(e.getMessage());
+			e.printStackTrace();
+		} finally {
+			try {
+				Connection.closeConn(resultConn.getResult(), stmt, resultSet);
+			} catch (SQLException e) {
+				folioDTO.setCodError(TTWSConstants.ERROR_CODE_NOK);
+				folioDTO.setMsgError(e.getMessage());
+				e.printStackTrace();
+			}
+		}
+		System.out.println("end selectUniqFolio");
+		return folioDTO;
+	}
+	
 
 	@Override
 	public UserDTO logIn(UserDTO userDTO) {
@@ -381,4 +444,6 @@ public class UserDAOImpl implements UserDAO {
 		return result;
 
 	}
+
+	
 }
