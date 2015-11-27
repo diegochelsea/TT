@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import com.nad.tt.activity.folio.FoliosActivity;
 import com.nad.tt.activity.login.R;
 import com.nad.tt.comun.dto.folio.FolioDTO;
+import com.nad.tt.comun.dto.folio.FolioDTOS;
 import com.nad.tt.dao.folio.FolioDAO;
 import com.nad.tt.util.Constants;
 import com.nad.tt.util.Util;
@@ -40,6 +42,7 @@ public class FollowActivity extends Activity {
     private Drawable drawableUnactiveHide;
 
     FolioDTO fo =  null;
+    FolioDTOS fos =  null;
     FolioDAO folioDAO = null;
 
     @Override
@@ -51,13 +54,14 @@ public class FollowActivity extends Activity {
 
         //folio del intent anterior
         Intent i = getIntent();
-        fo = (FolioDTO) i.getSerializableExtra("FolioDTO");
-        getFolio(fo);
+        fos = (FolioDTOS) i.getSerializableExtra("FolioDTOS");
+        getFolio(fos);
     }
 
     private void init()
     {
         folioDAO = new FolioDAO();
+        fo = new FolioDTO();
 
         lblFolio = (TextView)findViewById(R.id.lbl_folio);
         lblSorce = (TextView)findViewById(R.id.lbl_sorce_set);
@@ -79,14 +83,14 @@ public class FollowActivity extends Activity {
 
     }
 
-    public void getFolio(FolioDTO folioDTO)
+    public void getFolio(FolioDTOS folioDTOS)
     {
         String st = "";
-        lblFolio.setText(String.valueOf(folioDTO.idFolio));
-        lblSorce.setText(folioDTO.beginning);
-        lblReceiver.setText(folioDTO.destination);
+        lblFolio.setText(String.valueOf(folioDTOS.idFolio));
+        lblSorce.setText(folioDTOS.beginning);
+        lblReceiver.setText(folioDTOS.destination);
+        st = folioDTOS.status;
 
-        st = folioDTO.status;
 
         switch (st)
         {
@@ -98,10 +102,11 @@ public class FollowActivity extends Activity {
 
                 //Estara habilitado solo el boton PickUp
                 //Llenamos el constructor para actualizar a pc
-                fo.idFolio = folioDTO.idFolio;
-                fo.beginning = folioDTO.beginning;
-                fo.destination = folioDTO.destination;
+                fo.idFolio=  Integer.parseInt(lblFolio.getText().toString());
+                fo.beginning = lblSorce.getText().toString();
+                fo.destination = lblReceiver.getText().toString();
                 fo.status = Constants.PICKUP;
+
                 break;
             case Constants.PICKUP:
                 btnPickUp.setBackground(drawableActiveHide);
@@ -110,10 +115,11 @@ public class FollowActivity extends Activity {
                 btnCustom.setEnabled(false);
                 btnDelivered.setEnabled(false);
 
-                fo.idFolio = folioDTO.idFolio;
-                fo.beginning = folioDTO.beginning;
-                fo.destination = folioDTO.destination;
+                fo.idFolio=  Integer.parseInt(lblFolio.getText().toString());
+                fo.beginning = lblSorce.getText().toString();
+                fo.destination = lblReceiver.getText().toString();
                 fo.status = Constants.CHEKIN;
+
                 break;
             case Constants.CHEKIN:
                 btnPickUp.setBackground(drawableActiveHide);
@@ -123,9 +129,9 @@ public class FollowActivity extends Activity {
                 btnCustom.setEnabled(false);
                 btnDelivered.setEnabled(false);
 
-                fo.idFolio = folioDTO.idFolio;
-                fo.beginning = folioDTO.beginning;
-                fo.destination = folioDTO.destination;
+                fo.idFolio=  Integer.parseInt(lblFolio.getText().toString());
+                fo.beginning = lblSorce.getText().toString();
+                fo.destination = lblReceiver.getText().toString();
                 fo.status = Constants.ONFLY;
                 break;
             case Constants.ONFLY:
@@ -137,9 +143,9 @@ public class FollowActivity extends Activity {
                 btnOnFly.setEnabled(false);
                 btnDelivered.setEnabled(false);
 
-                fo.idFolio = folioDTO.idFolio;
-                fo.beginning = folioDTO.beginning;
-                fo.destination = folioDTO.destination;
+                fo.idFolio=  Integer.parseInt(lblFolio.getText().toString());
+                fo.beginning = lblSorce.getText().toString();
+                fo.destination = lblReceiver.getText().toString();
                 fo.status = Constants.CUSTOMC;
                 break;
             case Constants.CUSTOMC:
@@ -152,9 +158,9 @@ public class FollowActivity extends Activity {
                 btnCustom.setEnabled(false);
                 btnOnFly.setEnabled(false);
 
-                fo.idFolio = folioDTO.idFolio;
-                fo.beginning = folioDTO.beginning;
-                fo.destination = folioDTO.destination;
+                fo.idFolio=  Integer.parseInt(lblFolio.getText().toString());
+                fo.beginning = lblSorce.getText().toString();
+                fo.destination = lblReceiver.getText().toString();
                 fo.status = Constants.DELIVERED;
                 break;
             case Constants.DELIVERED:
@@ -178,13 +184,20 @@ public class FollowActivity extends Activity {
     }
 
     public void setStatus(View view) {
+
         FolioDTO folio = new FolioDTO();
         folio.idFolio = fo.idFolio;
         folio.beginning = fo.beginning;
         folio.destination =fo.destination;
         folio.status = fo.status;
         folio = folioDAO.updateFolio(folio);
-        getFolio(folio);
+
+        FolioDTOS folios = new FolioDTOS();
+        folios.idFolio =  fo.getIdFolio();
+        folios.beginning =  fo.getBeginning();
+        folios.destination =  fo.getDestination();
+        folios.status =  fo.getStatus();
+        getFolio(folios);
         Util.showToast(String.valueOf(folio.idFolio)+" "+folio.msgError, this);
     }
 

@@ -77,14 +77,14 @@ public class FolioDAO {
     public FolioDTO updateFolio(FolioDTO folioDTO) {
         int result = 0;
         folioDTO.codError = Constants.ERROR_CODE_NOK;
-        folioDTO.msgError = "¡Error: could not save the user, try again later!";
+        folioDTO.msgError = "¡Error: could not save the folio, try again later!";
         try {
             result = WsConection.execStatement(folioDTO, Constants.METHOD_UPDATE_FOLIO, Constants.FOLIO_DTO);
             if (result > 0){
                 folioDTO.codError = Constants.ERROR_CODE_OK;
                 folioDTO.msgError = "¡Updated successfully!";
             }
-            Log.d("updateFolio", "");
+            Log.d("saveUser", "");
         } catch (Exception e) {
             Log.d("WEB-SERVICE, Expetion: ", e.toString());
             Log.d("WEB-SERVICE, Expetion: ", e.getMessage());
@@ -92,13 +92,21 @@ public class FolioDAO {
         return folioDTO;
     }
 
-    public int insert(FolioDTO folioDTO) {
+    public FolioDTO saveFolio(FolioDTO folioDTO) {
         int result = 0;
+        folioDTO.codError = Constants.ERROR_CODE_NOK;
+        folioDTO.msgError = "¡Error: could not save the Folio, try again later!";
         try {
-            result =  1;// wc.getSimpleObject(Constants.INSERT,Constants.SOAP_PRIMITIVE);
+            result = WsConection.execStatement(folioDTO, Constants.METHOD_SAVE_FOLIO, Constants.FOLIO_DTO);
+            if (result > 0){
+                folioDTO.codError = Constants.ERROR_CODE_OK;
+                folioDTO.msgError = "¡User saved successfully!";
+            }
+            Log.d("saveUser", "");
         } catch (Exception e) {
-            result = 0;
+            Log.d("WEB-SERVICE, Expetion: ", e.toString());
+            Log.d("WEB-SERVICE, Expetion: ", e.getMessage());
         }
-        return  result;
+        return folioDTO;
     }
 }

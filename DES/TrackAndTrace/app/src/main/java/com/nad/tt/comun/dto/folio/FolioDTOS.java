@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by TI-MAURICIO on 15/11/2015.
  */
-public class FolioDTO{
+public class FolioDTOS implements Serializable {
 
     public int idFolio;
     public String beginning = "";
@@ -15,12 +15,12 @@ public class FolioDTO{
     public String codError;
     public String msgError;
 
-    public FolioDTO() {
+    public FolioDTOS() {
         // TODO Auto-generated constructor stub
     }
 
-    public FolioDTO(int idFolio, String beginning, String destination,
-                    String status) {
+    public FolioDTOS(int idFolio, String beginning, String destination,
+                     String status) {
         super();
         this.idFolio = idFolio;
         this.beginning = beginning;

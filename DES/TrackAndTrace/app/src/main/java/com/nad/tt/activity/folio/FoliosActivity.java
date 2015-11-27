@@ -21,6 +21,7 @@ import com.nad.tt.activity.follow.FollowActivity;
 import com.nad.tt.activity.login.R;
 import com.nad.tt.comun.dto.UserDTO;
 import com.nad.tt.comun.dto.folio.FolioDTO;
+import com.nad.tt.comun.dto.folio.FolioDTOS;
 import com.nad.tt.comun.enumeration.ElementDTO;
 import com.nad.tt.dao.folio.FolioDAO;
 import com.nad.tt.util.Constants;
@@ -51,7 +52,7 @@ public class FoliosActivity extends Activity {
     private AutoCompleteTextView textAutoComplete;
     private ListView list;
     private String item;
-    private FolioDTO fod;
+    private FolioDTOS fods;
     private FolioDAO folioDAO = null;
     private UserDTO userDTO;
     private  TextView lblIdStatusHidde;
@@ -62,7 +63,7 @@ public class FoliosActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_folios);
         init();
-        fod = new FolioDTO();
+        fods = new FolioDTOS();
     }
 
     public void init() {
@@ -142,7 +143,7 @@ public class FoliosActivity extends Activity {
 
     public void goToFollow(View view) {
         Intent r = new Intent(this, FollowActivity.class);
-        r.putExtra("FolioDTO", fod);
+        r.putExtra("FolioDTOS", fods);
         startActivity(r);
         limpiarCampos();
     }
@@ -155,13 +156,13 @@ public class FoliosActivity extends Activity {
                 if (Util.isValidComponent(validateFolio()))
                 {
 
-                    fod.setIdFolio(Integer.parseInt(txtFolio.getText().toString()));
-                    fod.setBeginning(txtOrigin.getText().toString());
-                    fod.setDestination(txtDestination.getText().toString());
-                    fod.setStatus(Constants.NA);
+                    fods.setIdFolio(Integer.parseInt(txtFolio.getText().toString()));
+                    fods.setBeginning(txtOrigin.getText().toString());
+                    fods.setDestination(txtDestination.getText().toString());
+                    fods.setStatus(Constants.NA);
 
                     Intent  h= new Intent(this, ActivitySetFolio.class);
-                    h.putExtra("FolioDTO", fod);
+                    h.putExtra("FolioDTOS", fods);
                     startActivity(h);
 
                     limpiarCampos();
@@ -243,10 +244,10 @@ public class FoliosActivity extends Activity {
                 txtOrigin.setEnabled(false);
                 txtDestination.setEnabled(false);
 
-                fod.setIdFolio(Integer.parseInt(txtFolio.getText().toString()));
-                fod.setDestination(txtDestination.getText().toString());
-                fod.setBeginning(txtOrigin.getText().toString());
-                fod.setStatus(lblIdStatusHidde.getText().toString());
+                fods.setIdFolio(Integer.parseInt(txtFolio.getText().toString()));
+                fods.setDestination(txtDestination.getText().toString());
+                fods.setBeginning(txtOrigin.getText().toString());
+                fods.setStatus(lblIdStatusHidde.getText().toString());
 
         } catch (Exception e) {
             Log.d(Constants.LOG_NAD, e.getMessage());

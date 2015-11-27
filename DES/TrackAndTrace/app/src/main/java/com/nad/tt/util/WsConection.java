@@ -172,23 +172,15 @@ public final class WsConection {
                 Log.d("CASE", "2");
                 break;
             case Constants.FOLIO_DTO:
-                FolioDTO f = (FolioDTO) objet;
+                FolioDTO fol = (FolioDTO) objet;
                 pi.setName(Constants.FOLIO_DTO);
-                pi.setValue(f);
-                pi.setType(f.getClass());
+                pi.setValue(fol);
+                pi.setType(fol.getClass());
                 soapObjectResult.addProperty(pi);
                 envelope.setOutputSoapObject(soapObjectResult);
-                envelope.addMapping(Constants.NAME_SAPACE, Constants.CLASS_FOLIO_DTO, f.getClass());
+                envelope.addMapping(Constants.NAME_SAPACE, Constants.CLASS_FOLIO_DTO, fol.getClass());
                 Log.d("CASE", "3");
                 break;
-            /*case Constants.FOLLOWUP_DTO:
-                FollowUp fu = (FollowUp)objet;
-                pi.setName(Constants.FOLLOWUP_DTO);
-                pi.setValue(fu);
-                pi.setType(fu.getClass());
-                envelope.addMapping(soap_action, clas, fu.getClass());
-                break;
-                */
             default:
                 break;
         }
@@ -200,6 +192,7 @@ public final class WsConection {
             result = Integer.valueOf(envelope.getResponse().toString());
 
         } catch (Exception ex) {
+            Log.d("exeption: ", ex.getMessage().toString());
             result = 0;// error
         }
         return result;
